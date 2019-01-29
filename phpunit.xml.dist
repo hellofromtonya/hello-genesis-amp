@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/5.7/phpunit.xsd"
+		 bootstrap="tests/bootstrap.php"
+		 backupGlobals="false"
+		 beStrictAboutCoversAnnotation="true"
+		 beStrictAboutOutputDuringTests="true"
+		 beStrictAboutTestsThatDoNotTestAnything="true"
+		 beStrictAboutTodoAnnotatedTests="true"
+		 colors="true"
+		 verbose="true">
+	<testsuites>
+		<testsuite name="unit">
+			<directory suffix=".php">tests/Unit</directory>
+		</testsuite>
+		<testsuite name="integration">
+			<directory suffix=".php">tests/Integration</directory>
+		</testsuite>
+		<testsuite name="system">
+			<directory suffix=".php">tests/System</directory>
+		</testsuite>
+	</testsuites>
+
+	<filter>
+		<whitelist processUncoveredFilesFromWhitelist="true">
+			<directory suffix=".php">.</directory>
+		</whitelist>
+	</filter>
+</phpunit>

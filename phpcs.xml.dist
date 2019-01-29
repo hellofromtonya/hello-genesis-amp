@@ -1,0 +1,96 @@
+<?xml version="1.0"?>
+<ruleset name="Genesis AMP">
+	<description>The custom ruleset for Genesis AMP plugin.</description>
+
+	<!-- For help in understanding this file: https://github.com/squizlabs/PHP_CodeSniffer/wiki/Annotated-ruleset.xml -->
+	<!-- For help in using PHPCS: https://github.com/squizlabs/PHP_CodeSniffer/wiki/Usage -->
+
+	<!-- What to scan -->
+	<file>.</file>
+	<!-- Ignoring Files and Folders:
+		https://github.com/squizlabs/PHP_CodeSniffer/wiki/Advanced-Usage#ignoring-files-and-folders -->
+	<exclude-pattern>/assets/components/</exclude-pattern>
+	<exclude-pattern>/docs/</exclude-pattern>
+	<exclude-pattern>/logs/</exclude-pattern>
+	<exclude-pattern>/node_modules/</exclude-pattern>
+	<exclude-pattern>/publish/</exclude-pattern>
+	<exclude-pattern>/vendor/</exclude-pattern>
+	<exclude-pattern>*.min.js</exclude-pattern>
+	<exclude-pattern>superfish.js</exclude-pattern>
+	<exclude-pattern>html5shiv.js</exclude-pattern>
+
+	<!-- How to scan -->
+	<arg value="sp"/> <!-- Show sniff and progress -->
+	<arg name="colors"/> <!-- Show results with colors -->
+	<arg name="basepath" value="."/> <!-- Strip the file paths down to the relevant bit -->
+	<arg name="parallel" value="50"/> <!-- Enables parallel processing when available for faster results. -->
+	<arg name="extensions" value="php"/> <!-- Limit to PHP files -->
+
+	<!-- Rules: Check PHP version compatibility - see
+		https://github.com/PHPCompatibility/PHPCompatibilityWP -->
+	<rule ref="PHPCompatibilityWP">
+		<exclude-pattern>tests</exclude-pattern>
+	</rule>
+	<!-- For help in understanding this testVersion:
+		https://github.com/PHPCompatibility/PHPCompatibility#sniffing-your-code-for-compatibility-with-specific-php-versions -->
+	<config name="testVersion" value="7.0-"/>
+
+	<!-- Rules: WordPress Coding Standards - see
+		https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards -->
+	<config name="minimum_supported_wp_version" value="5.0"/>
+	<!-- For help in understanding this custom sniff properties:
+		https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards/wiki/Customizable-sniff-properties -->
+	<rule ref="WordPress"/>
+
+	<rule ref="WordPress.Security.EscapeOutput">
+		<properties>
+			<property type="array" name="customAutoEscapedFunctions">
+				<element value="genesis_attr"/>
+				<element value="genesis_code"/>
+			</property>
+		</properties>
+	</rule>
+
+	<rule ref="WordPress.Files.FileName">
+		<properties>
+			<property name="is_theme" value="true"/>
+			<property name="strict_class_file_names" value="false"/>
+		</properties>
+	</rule>
+
+	<rule ref="WordPress.Files.FileName.NotHyphenatedLowercase">
+		<exclude-pattern>page_archive.php</exclude-pattern>
+		<exclude-pattern>page_blog.php</exclude-pattern>
+		<exclude-pattern>*/TestCase.php</exclude-pattern>
+		<exclude-pattern>*/TestCaseTrait.php</exclude-pattern>
+	</rule>
+
+	<rule ref="WordPress.NamingConventions.PrefixAllGlobals">
+	    <exclude name="WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedNamespaceFound" />
+	    <exclude name="WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedConstantFound" />
+		<properties>
+			<property name="prefixes" type="array">
+				<element value="hello_genesis_amp"/>
+				<element value="_hello_genesis_amp"/>
+				<element value="genesis"/>
+				<element value="_genesis"/>
+			</property>
+		</properties>
+		<exclude-pattern>tests/*</exclude-pattern>
+	</rule>
+
+	<rule ref="WordPress.NamingConventions.ValidVariableName">
+		<properties>
+			<property name="customPropertiesWhitelist" value="childNodes,tagName,textContent,parentNode,nodeType,nodeName,nextSibling,firstChild,lastChild,nodeValue,DEFAULT_ARGS,documentElement,removeChild,ownerDocument,DEFAULT_WIDTH,DEFAULT_HEIGHT" />
+		</properties>
+	</rule>
+
+	<rule ref="WordPress.WP.I18n">
+		<properties>
+			<property name="text_domain" type="array">
+				<element value="hello-genesis-amp"/>
+			</property>
+		</properties>
+		<exclude-pattern>theme-fixer/themes/*</exclude-pattern>
+	</rule>
+</ruleset>
