@@ -15,3 +15,35 @@
 	License URI: http://www.opensource.org/licenses/gpl-license.php
 	Text Domain: hello-genesis-amp
 */
+
+// Set runtime options
+$use-bounceInDown: true;
+$use-fadeIn: true;
+$use-fadeOut: true;
+$user-slideInUp: true;
+$use-slideInRight: true;
+$use-slideOutLeft: true;
+$imagePath: 'assets/images';
+
+// Base stuff
+@import "bourbon";
+@import "neat";
+@import "../../node_modules/sass-rem/rem";
+
+@import "utilities/index";
+@import "base/index";
+
+// Layouts
+@import "layout/index";
+
+// Components
+@import "components/index";
+
+// Modules
+@import "modules/index";
+
+// Templates - Page specific styles
+@import "templates/posts-page/index";
+
+// Widgets
+@import "widgets/index";

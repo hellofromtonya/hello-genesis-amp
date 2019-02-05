@@ -1,0 +1,25 @@
+.sidebar--right, .sidebar--left {
+  display: none;
+
+  @media screen and (min-width: $full-layout--screen) {
+    display: block;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+  }
+}
+
+.sidebar--left {
+  top: 80px;
+  left: 0;
+}
+
+.sidebar--right {
+  right: 0;
+  background-color: $background--accent-color;
+  width: 100px;
+
+  .sidebar--wrapper {
+    position: relative;
+  }
+}
