@@ -13,7 +13,7 @@ namespace Hello_From_Tonya\Hello_Genesis_AMP;
 
 return [
 	'theme_slug'          => 'hello-genesis-amp',
-	'version'             => CHILD_THEME_VERSION,
+	'version'             => get_theme_version(),
 	'load_min_stylesheet' => defined( 'WP_DEBUG' ) && WP_DEBUG,
 	'theme_defaults'      => [
 		'blog_cat_num'              => 10,
@@ -24,7 +24,7 @@ return [
 		'site_layout'               => 'content-sidebar',
 	],
 	'init_pre'            => [
-		'favicon' => CHILD_THEME_URL . '/assets/images/favicon.jpg',
+		'favicon' => get_theme_url() . '/assets/images/favicon.jpg',
 	],
 	'setup'               => [
 		'genesis_unregister_layout'    => [

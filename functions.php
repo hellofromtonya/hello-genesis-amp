@@ -12,15 +12,54 @@
 namespace Hello_From_Tonya\Hello_Genesis_AMP;
 
 /**
- * Initialize the theme's constants.
+ * Get the absolute path to the root directory of the child theme.
+ *
+ * @since 1.0.0
+ *
+ * @return string returns the directory path.
  */
-define( 'CHILD_THEME_DIR', get_stylesheet_directory() );
-define( 'CHILD_THEME_URL', get_stylesheet_directory_uri() );
+function get_theme_dir() {
+	return __DIR__;
+}
 
-if ( defined( 'WP_DEBUG' ) && WP_DEBUG ) {
-	define( 'CHILD_THEME_VERSION', get_asset_version_number( CHILD_THEME_DIR . '/style.min.css' ) );
-} else {
-	define( 'CHILD_THEME_VERSION', ( wp_get_theme() )->get( 'Version' ) );
+/**
+ * Get the URL to the root of the child theme.
+ *
+ * @since 1.0.0
+ *
+ * @return string returns the URL to the root of the child theme.
+ */
+function get_theme_url() {
+	static $url = '';
+
+	if ( ! empty( $url ) ) {
+		$url = get_stylesheet_directory_uri();
+	}
+
+	return $url;
+}
+
+/**
+ * Get the theme's version.
+ *
+ * @since 1.0.0
+ *
+ * @return string returns the theme's version.
+ */
+function get_theme_version() {
+	static $version = null;
+
+	if ( null !== $version ) {
+		return $version;
+	}
+
+	if ( defined( 'WP_DEBUG' ) && WP_DEBUG ) {
+		$version = filemtime( CHILD_THEME_DIR . '/style.min.css' );
+	} else {
+		$version = ( wp_get_theme() )->get( 'Version' );
+	}
+
+	return $version;
 }
 
 /**
@@ -50,8 +89,23 @@ function autoload() {
 	}
 }
 
-autoload();
+/**
+ * Sets up the theme.
+ *
+ * @since 1.0.0
+ *
+ * @return Theme_Setup returns the theme setup instance.
+ */
+function setup_theme() {
+	static $theme_setup = null;
 
-$hello_genesis_amp_config = require_once CHILD_CONFIG_DIR . 'theme.php';
-$hello_genesis_amp_setup  = new Theme_Setup( $hello_genesis_amp_config );
-$hello_genesis_amp_setup->init();
+	if ( null === $theme_setup ) {
+		$theme_setup  = new Theme_Setup( require_once __DIR__ . '/config/theme.php' );
+		$theme_setup->init();
+	}
+
+	return $theme_setup;
+}
+
+autoload();
+setup_theme();

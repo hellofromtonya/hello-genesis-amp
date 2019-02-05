@@ -77,10 +77,6 @@ function bootstrap_unit_integration() {
 			return rtrim( $string, '/\\' ) . '/';
 		}
 	);
-
-	if ( ! defined( 'CHILD_THEME_VERSION' ) ) {
-		define( 'CHILD_THEME_VERSION', '1.0.0' );
-	}
 }
 
 bootstrap_tests();

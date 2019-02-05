@@ -23,27 +23,6 @@ class Theme_Setup {
 	 */
 	protected $config;
 
-	/**
-	 * Instance of the theme.
-	 *
-	 * @var \WP_Theme
-	 */
-	protected $child_theme;
-
-	/**
-	 * Path to the child theme root folder
-	 *
-	 * @var string
-	 */
-	protected $child_theme_dir;
-
-	/**
-	 * Child theme root URL
-	 *
-	 * @var string
-	 */
-	protected $child_theme_url;
-
 	/*************************
 	 * Instantiate & Init
 	 ************************/
