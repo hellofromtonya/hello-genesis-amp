@@ -29,31 +29,37 @@ import uglify from 'gulp-uglify';
 import wppot from 'gulp-wp-pot';
 
 // Import theme-specific configurations.
-var config = require('./config/theme-config.js');
+var themeConfig = require('./config/theme-config.js');
 
 // Project paths
 const paths = {
 	config: {
 		themeConfig: './config/theme-config.js'
 	},
-	styles: {
-		src: ['./assets/css/**/*.css', './assets/dist/css/*.css', '!./assets/dist/css/*.min.css'],
-		dest: './assets/dist/css',
-		sass: ['./assets/scss/*.scss'],
-		sassMaps: './assets/dist/css/maps'
+	mainStyle: {
+		sass: './assets/scss/main/style.scss',
+		src: './style.css',
+		dest: './',
+		sassMaps: './assets/css/maps'
+	},
+	auxStyles: {
+		src: ['./assets/css/**/*.css', '!./assets/css/*.min.css'],
+		dest: './assets/css',
+		sass: ['./assets/scss/**/*.scss', '!./assets/scss/main/style.scss'],
+		sassMaps: './assets/css/maps'
 	},
 	scripts: {
 		src: ['assets/js/**/*.js'],
-		min: 'assets/dist/js/*.min.js',
-		dest: './assets/dist/js/'
+		min: 'assets/js/*.min.js',
+		dest: './assets/js/'
 	},
 	images: {
 		src: ['assets/images/**/*.{jpg,JPG,png,svg,gif,GIF}'],
-		dest: 'assets/dist/images/'
+		dest: 'assets/images/'
 	},
 	languages: {
 		src: ['./**/*.php'],
-		dest: './languages/' + config.theme.slug + '.pot'
+		dest: './languages/' + themeConfig.theme.slug + '.pot'
 	}
 };
 
@@ -67,10 +73,10 @@ const server = browserSync.create();
 
 // Initialize the BrowserSync server conditionally:
 function serve(done) {
-	if (config.dev.browserSync.live) {
+	if (themeConfig.dev.browserSync.live) {
 		server.init({
-			proxy: config.dev.browserSync.proxyURL,
-			port: config.dev.browserSync.bypassPort,
+			proxy: themeConfig.dev.browserSync.proxyURL,
+			port: themeConfig.dev.browserSync.bypassPort,
 			liveReload: true
 		});
 	}
@@ -79,8 +85,8 @@ function serve(done) {
 
 // Reload the live site:
 function reload(done) {
-	config = requireUncached('./config/theme-config.js');
-	if (config.dev.browserSync.live) {
+	themeConfig = requireUncached('./config/theme-config.js');
+	if (themeConfig.dev.browserSync.live) {
 		if (server.paused) {
 			server.resume();
 		}
@@ -94,22 +100,23 @@ function reload(done) {
 /**
  * Convert Sass into CSS.
  */
-export function sassStyles() {
-	return gulp.src(paths.styles.sass)
+export function runSass(config) {
+	return gulp.src(config.sass)
 		.pipe(sourcemaps.init())
 		.pipe(sass().on('error', sass.logError))
 		.pipe(tabify(2, true))
 		.pipe(sourcemaps.write())
-		.pipe(gulp.dest('./assets/dist/css'));
+		.pipe(gulp.dest(config.dest))
+		.on('end', function(){ log("Ran 'runSass'"); });
 }
 
 /**
  * CSS via PostCSS + CSSNext (includes Autoprefixer by default).
  */
-export function styles() {
-	config = requireUncached('./config/theme-config.js');
+export function runStyles(config) {
+	themeConfig = requireUncached('./config/theme-config.js');
 
-	return gulp.src(paths.styles.src)
+	return gulp.src(config.src)
 		.pipe(print())
 		.pipe(phpcs({
 			bin: 'vendor/bin/phpcs',
@@ -121,12 +128,13 @@ export function styles() {
 		.pipe(postcss([
 			postcssPresetEnv({
 				stage: 3,
-				browsers: config.dev.browserslist
+				browsers: themeConfig.dev.browserslist
 			})
 		]))
-		.pipe(gulpif(!config.dev.debug.styles, cssnano()))
-		.pipe(gulpif(!config.dev.debug.styles, rename({suffix: '.min'})))
-		.pipe(gulp.dest(paths.styles.dest));
+		.pipe(gulpif(!themeConfig.dev.debug.styles, cssnano()))
+		.pipe(gulpif(!themeConfig.dev.debug.styles, rename({suffix: '.min'})))
+		.pipe(gulp.dest(config.dest))
+		.on('end', function(){ log("Ran 'runStyles'"); });
 }
 
 
@@ -134,14 +142,14 @@ export function styles() {
  * JavaScript via Babel, ESlint, and uglify.
  */
 export function scripts() {
-	config = requireUncached('./config/theme-config.js');
+	themeConfig = requireUncached('./config/theme-config.js');
 
 	return gulp.src(paths.scripts.src)
 		.pipe(newer(paths.scripts.dest))
 		.pipe(eslint())
 		.pipe(eslint.format())
 		.pipe(babel())
-		.pipe(gulpif(!config.dev.debug.scripts, uglify()))
+		.pipe(gulpif(!themeConfig.dev.debug.scripts, uglify()))
 		.pipe(gulp.dest(paths.scripts.dest));
 }
 
@@ -165,19 +173,6 @@ export function images() {
 		.pipe(gulp.dest(paths.images.dest));
 }
 
-
-/**
- * Watch everything
- */
-export function watch() {
-	// gulp.watch(paths.styles.sass, gulp.series(sassStyles, styles, reload));
-	gulp.watch(paths.styles.sass, sassStyles);
-	gulp.watch(paths.styles.src, gulp.series(styles, reload));
-	gulp.watch(paths.scripts.src, gulp.series(scripts, reload));
-	gulp.watch(paths.scripts.min, gulp.series(jsMin, reload));
-	gulp.watch(paths.images.src, gulp.series(images, reload));
-}
-
 /**
  * Generate translation files.
  */
@@ -185,10 +180,39 @@ export function translate() {
 	return gulp.src(paths.languages.src)
 		.pipe(sort())
 		.pipe(wppot({
-			domain: config.theme.slug,
-			package: config.theme.name,
-			bugReport: config.theme.name,
-			lastTranslator: config.theme.author
+			domain: themeConfig.theme.slug,
+			package: themeConfig.theme.name,
+			bugReport: themeConfig.theme.name,
+			lastTranslator: themeConfig.theme.author
 		}))
 		.pipe(gulp.dest(paths.languages.dest));
+}
+
+/**
+ * Let's watch everything by running: `gulp watch`.
+ */
+export function watch() {
+	// The main stylesheet's Sass.
+	gulp.watch(paths.mainStyle.sass, gulp.series(
+		() => {
+			return runSass(paths.mainStyle);
+		},
+		() => {
+			return runStyles(paths.mainStyle)
+		},
+		reload
+	));
+	// The auxiliary Sass and CSS.
+	gulp.watch(paths.auxStyles.sass, gulp.series(
+		() => {
+			return runSass(paths.auxStyles);
+		},
+		() => {
+			return runStyles(paths.auxStyles)
+		},
+		reload
+	));
+	gulp.watch(paths.scripts.src, gulp.series(scripts, reload));
+	gulp.watch(paths.scripts.min, gulp.series(jsMin, reload));
+	gulp.watch(paths.images.src, gulp.series(images, reload));
 }
