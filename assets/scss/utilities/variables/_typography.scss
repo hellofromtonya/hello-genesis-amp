@@ -20,17 +20,17 @@ $em-base: 18px;
 $base-font-size: 18px;
 $base-line-height: 1.625;
 $heading-line-height: 1.25;
-$secondary-font-size: floor(modular-scale(-1, $base-font-size, $major-second));
-$site-title-font-size: floor(modular-scale(5, $base-font-size, $major-second));
+$secondary-font-size: 16px;
+$site-title-font-size: 26px;
 
 // Heading Font Properties
 //------------------------------------------------------------------------------
-$h1-font-size: floor(modular-scale(6, $base-font-size, $major-second));
-$h2-font-size: floor(modular-scale(5, $base-font-size, $major-second));
-$h3-font-size: floor(modular-scale(4, $base-font-size, $major-second));
-$h4-font-size: floor(modular-scale(3, $base-font-size, $major-second));
-$h5-font-size: floor(modular-scale(2, $base-font-size, $major-second));
-$h6-font-size: floor(modular-scale(1, $base-font-size, $major-second));
+$h1-font-size: 28px;
+$h2-font-size: 26px;
+$h3-font-size: 22px;
+$h4-font-size: 20px;
+$h5-font-size: 18px;
+$h6-font-size: 16px;
 
 // Header Font Properties
 //------------------------------------------------------------------------------
@@ -48,7 +48,6 @@ $menu-toggle-size: $h2-font-size;
 $nav-font-size: $secondary-font-size;
 $subnav-font-size: $secondary-font-size;
 $pagination-font-size: $secondary-font-size;
-
 
 // Form Font Properties
 //------------------------------------------------------------------------------

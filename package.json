@@ -39,6 +39,7 @@
     "gulp-phpcs": "^2.1.0",
     "gulp-postcss": "^7.0.1",
     "gulp-print": "^5.0.0",
+    "gulp-rename": "^1.4.0",
     "gulp-sass": "^4.0.0",
     "gulp-sort": "^2.0.0",
     "gulp-sourcemaps": "^2.6.4",
@@ -48,6 +49,7 @@
     "gulp-wp-pot": "^2.2.0",
     "gulp-zip": "^4.1.0",
     "postcss-partial-import": "^4.1.0",
+    "postcss-pixels-to-rem": "^0.8.0",
     "postcss-preset-env": "^5.1.0",
     "require-uncached": "^1.0.3"
   },

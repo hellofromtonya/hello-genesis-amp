@@ -16,7 +16,7 @@
   }
 
   a {
-    @include rem(font-size, 18px);
+    font-size: 18px;
     font-family: $playfair;
     font-weight: 100;
     color: $sidebar--color;

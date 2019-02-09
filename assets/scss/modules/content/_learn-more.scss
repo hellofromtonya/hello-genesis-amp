@@ -30,15 +30,15 @@
     height: 200px;
 
     @include media($smaller-screen-up) {
-      font-size: rem(22);
+      font-size: 22px;
     }
 
     //@include media($small-screen-up) {
-    //  font-size: rem(22);
+    //  font-size: 22px;
     //
     //}
     @include media($small-screen-up) {
-      font-size: rem(22);
+      font-size: 22px;
       @include flex(1);
       &::before {
         z-index:10;
@@ -50,7 +50,7 @@
       }
     }
     @include media($large-screen-up) {
-      font-size: rem(30);
+      font-size: 30px;
     }
     position:relative;
 
@@ -65,11 +65,11 @@
     @include flex-direction(column);
     @include justify-content(center);
     text-align: center;
-    font-size: rem(30);
+    font-size: 30px;
     border-bottom: none;
 
     @include media($large-screen-up) {
-      font-size: rem(40);
+      font-size: 40px;
     }
 
     &.php {
@@ -89,14 +89,14 @@
     }
 
     .big-button-description {
-      font-size: rem(18);
+      font-size: 18px;
       font-weight: 400;
 
       @include media($small-screen-up) {
-        font-size: rem(16);
+        font-size: 16px;
       }
       @include media($large-screen-up) {
-        font-size: rem(18);
+        font-size: 18px;
       }
     }
   }

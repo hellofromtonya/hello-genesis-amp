@@ -12,7 +12,7 @@ input[type="button"] {
   border-bottom: 1px solid $darkBlue;
   color: $white;
   cursor: pointer;
-  @include rem(font-size, 14px);
+  font-size: 14px;
   font-weight: 100;
   letter-spacing: 1px;
   padding: 8px 20px;

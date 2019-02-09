@@ -17,9 +17,9 @@ body {
 	background-color: $white;
 	color: $darkBlue;
 	font-family: $sans-serif;
-	@include rem(font-size, $base-font-size );
+	font-size: $base-font-size;
 	@media screen and (min-width: 767px) {
-		@include rem(font-size, 20px );
+		font-size: 20px;
 	}
 	font-weight: 400;
 	line-height: $base-line-height;
@@ -34,7 +34,7 @@ input[type="reset"],
 input[type="submit"],
 textarea:focus,
 .gallery img {
-	@include transition( all 0.1s ease-in-out );
+	transition: all 0.1s ease-in-out;
 }
 
 ::-moz-selection {

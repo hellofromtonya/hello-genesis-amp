@@ -6,7 +6,7 @@
 	Author: Tonya Mork <hellofromtonya>
 	Author URI: https://hellofromtonya.com
 
-	Version: 1.0.0
+	Version: 1.0.05
 
 	Template: genesis
 	Template Version: 2.8
@@ -26,24 +26,20 @@ $use-slideOutLeft: true;
 $imagePath: 'assets/images';
 
 // Base stuff
-@import "bourbon";
-@import "neat";
-@import "../../node_modules/sass-rem/rem";
-
 @import "utilities/index";
 @import "base/index";
 
 // Layouts
-@import "layout/index";
+//@import "layout/index";
 
 // Components
-@import "components/index";
+//@import "components/index";
 
 // Modules
-@import "modules/index";
+//@import "modules/index";
 
 // Templates - Page specific styles
-@import "templates/posts-page/index";
+//@import "templates/posts-page/index";
 
 // Widgets
-@import "widgets/index";
+//@import "widgets/index";
