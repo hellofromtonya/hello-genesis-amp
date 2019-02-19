@@ -9,7 +9,7 @@
   text-align: center;
   width: 100%;
 
-  @media screen and (min-width: $medium-screen-up) {
+  @media screen and (min-width: $medium-screen) {
     text-align: right;
     width: 50%;
   }
@@ -21,7 +21,7 @@
     margin: 20px auto 0;
     width: 300px;
 
-    @media screen and (min-width: $small-screen-up) {
+    @media screen and (min-width: $small-screen) {
       float: right;
       margin-top: 0;
       width: 100%

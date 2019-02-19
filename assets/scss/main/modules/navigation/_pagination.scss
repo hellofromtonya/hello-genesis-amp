@@ -8,6 +8,7 @@
 
 .pagination {
 
+
   @include clearfix;
 
   ul {
@@ -60,7 +61,7 @@
     margin-bottom: 20px;
   }
 
-  @media screen and (min-width: $small-screen-up) {
+  @media screen and (min-width: $small-screen) {
     .pagination__previous, .pagination__next {
       margin-bottom: 0;
       width: 40%

@@ -25,9 +25,9 @@ $strokeDashoffsets: ( -130px, -60px, -65px, -40px, -50px );
   }
 }
 
-@include keyframes(helloDash) {
+@keyframes helloDash {
   to {
     stroke-dashoffset: 0;
-    fill: $orange;
+    fill: $white;
   }
 }

@@ -12,11 +12,11 @@ Structure and Layout
 		max-width: 80%;
 	}
 
-	@media screen and (min-width: $medium-screen-up) {
+	@media screen and (min-width: $medium-screen) {
 		max-width: $wrap-max-width-medium;
 	}
 
-	@media screen and (min-width: $huge-screen-up) {
+	@media screen and (min-width: $huge-screen) {
 		max-width: $wrap-max-width-large;
 		padding: 0;
 	}

@@ -7,11 +7,15 @@ code, .entry-content code {
   padding: 4px 4px 1px;
   background: #f5f7f8;
   font-family: $base-font-family;
-  @include border-top-radius(5px);
-  @include border-right-radius(5px);
-  @include border-bottom-radius(5px);
-  @include border-left-radius(5px);
-  color: #000;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-top-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border-top-left-radius: 5px;
+  color: $black;
 }
 
 a > code, .entry-content a > code {

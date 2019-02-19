@@ -69,8 +69,6 @@ class Theme_Setup {
 	 */
 	public function setup() {
 		$this->task_loader( 'setup' );
-
-		$this->unregister_genesis_callbacks();
 	}
 
 	/**********************
@@ -278,16 +276,5 @@ class Theme_Setup {
 
 			$this->{$method_name}( $task_config );
 		}
-	}
-
-	/**
-	 * Unregister Genesis callbacks.  We do this here because the child theme loads before Genesis.
-	 *
-	 * @since 1.0.0
-	 *
-	 * @return void
-	 */
-	protected function unregister_genesis_callbacks() {
-
 	}
 }

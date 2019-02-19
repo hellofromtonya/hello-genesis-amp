@@ -1,0 +1,85 @@
+$grid-box--background: $background--accent-color;
+
+.grid-boxed {
+  @include grid-container;
+
+  justify-content: center;
+
+  .grid-block {
+    border: 1px solid $grid-box--background;
+    padding: 20px;
+    min-height: 300px;
+
+    // Center the content within the boxed block.
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    p, & {
+      margin-bottom: 0;
+    }
+  }
+
+  dt.grid-block, .grid-block.boxed-callout {
+    background-color: $grid-box--background;
+    font-size: calc(20px + (30 - 20) * ((100vw - 400px) / (1200 - 400)));
+  }
+}
+
+//==============================================================================
+// Half background grid boxed
+// 50% of the grid-block has a background color applied to it.
+//==============================================================================
+
+.grid-boxed.--half-background {
+  .grid-block {
+    border: none;
+  }
+
+  &:not(.--checkered) {
+    .grid-block {
+      background: linear-gradient(270deg,$white 0,$white 50%,$grid-box--background 0,$grid-box--background);
+    }
+
+    &.--row-reverse {
+      .grid-block {
+        background: linear-gradient(90deg,$white 0,$white 50%,$grid-box--background 0,$grid-box--background);
+        text-align: right;
+      }
+    }
+  }
+
+  // Checkered
+
+  &.--checkered {
+    .grid-block {
+      &:nth-child(2n+1) {
+        background: linear-gradient(270deg,$white 0,$white 50%,$grid-box--background 0,$grid-box--background);
+        @media screen and (min-width: $full-layout--screen) {
+          padding-right: 20%;
+        }
+      }
+
+      &:nth-child(2n) {
+        background: linear-gradient(90deg,$white 0,$white 50%,$grid-box--background 0,$grid-box--background);
+        text-align: right;
+      }
+    }
+
+    &.--row-reverse {
+      .grid-block {
+        &:nth-child(2n+1) {
+          background: linear-gradient(90deg,$white 0,$white 50%,$grid-box--background 0,$grid-box--background);
+          text-align: right;
+        }
+
+        &:nth-child(2n) {
+          background: linear-gradient(270deg,$white 0,$white 50%,$grid-box--background 0,$grid-box--background);
+          @media screen and (min-width: $full-layout--screen) {
+            padding-right: 20%;
+          }
+        }
+      }
+    }
+  }
+}

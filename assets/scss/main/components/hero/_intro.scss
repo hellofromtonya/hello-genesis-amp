@@ -1,0 +1,32 @@
+.quote--intro {
+  margin-top: 50px;
+  text-align: left;
+  padding: 20px;
+  background-color: rgba(98,127,0,0.7);
+  color: $white;
+  display: inline-block;
+  position: relative;
+
+  p {
+      @media screen and (min-width: $medium-screen) {
+        font-size: 36px;
+      }
+    margin-bottom: 0;
+
+    &::before {
+      content: '\f10d';
+      font-family: FontAwesome;
+      font-size: 30px;
+      position: absolute;
+      top: -20px;
+      left: -5px;
+      color: $darkBlue;
+      font-weight: 100;
+    }
+  }
+
+  .fa {
+    margin-top: -10px;
+    color: $background--accent-color;
+  }
+}

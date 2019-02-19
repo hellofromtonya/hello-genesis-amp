@@ -6,7 +6,7 @@
 	Author: Tonya Mork <hellofromtonya>
 	Author URI: https://hellofromtonya.com
 
-	Version: 1.0.0
+	Version: 1.0.00000001a
 
 	Template: genesis
 	Template Version: 2.8
@@ -25,6 +25,10 @@ $use-slideInRight: true;
 $use-slideOutLeft: true;
 $imagePath: 'assets/images';
 
+// Bring in Bourbon and Neat.
+@import "bourbon";
+@import "neat";
+
 // Base stuff
 @import "utilities/index";
 @import "base/index";
@@ -36,3 +40,7 @@ $imagePath: 'assets/images';
 
 // Templates - Page specific styles
 @import "templates/posts-page/index";
+
+.section--hero {
+  background-color: #eee;
+}

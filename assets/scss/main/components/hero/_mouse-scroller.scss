@@ -1,0 +1,32 @@
+
+.intro--scroll {
+  margin: 0 auto;
+  width: 40px;
+  height: 40px;
+  padding-left: 7px;
+  cursor: pointer;
+  z-index: 2;
+
+  @media screen and (min-width: $full-layout--screen) {
+    position: absolute;
+    left: 50%;
+    bottom: -20vh;
+    margin-left: -20px;
+  }
+}
+
+.mouse-scroller {
+  color: $sidebar--color;
+  width: 25px;
+  opacity: 1;
+  transition: opacity .5s;
+
+  &--stroke {
+    stroke: $sidebar--color;
+  }
+
+  &--scroller {
+    animation: scrollBouncer 1s infinite;
+    stroke: #ada99d;
+  }
+}

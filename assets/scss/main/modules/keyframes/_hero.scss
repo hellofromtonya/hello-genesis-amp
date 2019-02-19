@@ -1,5 +1,5 @@
 
-@include keyframes(highlighter) {
+@keyframes highlighter {
   0%, 50% {
     background-color: $orange;
   }

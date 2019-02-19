@@ -12,7 +12,7 @@
   bottom: 0;
   right: 0;
 
-  @media screen and (min-width: $small-screen-up) {
+  @media screen and (min-width: $small-screen) {
     &.active {
       display: block;
     }

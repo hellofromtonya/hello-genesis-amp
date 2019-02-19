@@ -54,12 +54,23 @@ function get_theme_version() {
 	}
 
 	if ( defined( 'WP_DEBUG' ) && WP_DEBUG ) {
-		$version = filemtime( CHILD_THEME_DIR . '/style.min.css' );
+		$version = filemtime( __DIR__ . '/style.min.css' );
 	} else {
 		$version = ( wp_get_theme() )->get( 'Version' );
 	}
 
 	return $version;
+}
+
+/**
+ * Checks if in a debug/dev environment.
+ *
+ * @since 1.0.0
+ *
+ * @return bool
+ */
+function is_in_debug() {
+	return defined( 'WP_DEBUG' ) && WP_DEBUG;
 }
 
 /**
@@ -69,8 +80,6 @@ function get_theme_version() {
  */
 function autoload() {
 	$filenames = array(
-		'/support/dependencies-helpers.php',
-		'class-theme-setup.php',
 		'support/formatting.php',
 		'support/load-assets.php',
 		'support/markup.php',
@@ -82,10 +91,8 @@ function autoload() {
 		'structure/post.php',
 	);
 
-	$folder_root = __DIR__ . '/lib/';
-
 	foreach ( $filenames as $filename ) {
-		require_once $folder_root . $filename;
+		require_once __DIR__ . '/lib/' . $filename;
 	}
 }
 
@@ -100,6 +107,7 @@ function setup_theme() {
 	static $theme_setup = null;
 
 	if ( null === $theme_setup ) {
+		require __DIR__ . '/lib/class-theme-setup.php';
 		$theme_setup  = new Theme_Setup( require_once __DIR__ . '/config/theme.php' );
 		$theme_setup->init();
 	}
@@ -107,5 +115,11 @@ function setup_theme() {
 	return $theme_setup;
 }
 
-autoload();
+// Set up the theme first before loading Genesis.
 setup_theme();
+
+// Start up Genesis.
+require_once get_template_directory() . '/lib/init.php';
+
+// Load up all the files.
+autoload();

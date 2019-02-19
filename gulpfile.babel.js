@@ -28,6 +28,9 @@ import tabify from 'gulp-tabify';
 import uglify from 'gulp-uglify';
 import wppot from 'gulp-wp-pot';
 
+var bourbon = require("bourbon").includePaths,
+ 	neat    = require("bourbon-neat").includePaths;
+
 // Import theme-specific configurations.
 var themeConfig = require('./config/theme-config.js');
 
@@ -45,7 +48,7 @@ const paths = {
 	auxStyles: {
 		src: ['./assets/css/**/*.css', '!./assets/css/*.min.css'],
 		dest: './assets/css',
-		sass: ['./assets/scss/**/*.scss', '!./assets/scss/main/style.scss'],
+		sass: ['./assets/scss/**/*.scss', '!./assets/scss/main/**/*.scss'],
 		sassMaps: './assets/css/maps'
 	},
 	scripts: {
@@ -103,7 +106,11 @@ function reload(done) {
 export function runSass(config) {
 	return gulp.src(config.sass)
 		.pipe(sourcemaps.init())
-		.pipe(sass().on('error', sass.logError))
+		// .pipe(sass().on('error', sass.logError))
+		.pipe(sass({
+			sourcemaps: true,
+			includePaths: [bourbon, neat]
+		}).on('error', sass.logError))
 		.pipe(tabify(2, true))
 		.pipe(sourcemaps.write())
 		.pipe(gulp.dest(config.dest))

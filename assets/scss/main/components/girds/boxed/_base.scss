@@ -1,0 +1,27 @@
+$grid-box--background: $background--accent-color;
+
+.grid-boxed {
+  @include grid-container;
+
+  justify-content: center;
+
+  .grid-block {
+    border: 1px solid $grid-box--background;
+    padding: 20px;
+    min-height: 300px;
+
+    // Center the content within the boxed block.
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    p, & {
+      margin-bottom: 0;
+    }
+  }
+
+  dt.grid-block, .grid-block.boxed-callout {
+    background-color: $grid-box--background;
+    font-size: calc(20px + (30 - 20) * ((100vw - 400px) / (1200 - 400)));
+  }
+}

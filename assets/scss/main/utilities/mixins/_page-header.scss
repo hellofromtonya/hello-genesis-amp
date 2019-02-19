@@ -26,13 +26,13 @@
   }
 
   .entry-title {
-    @media screen and (min-width: $medium-screen-up)  {
+    @media screen and (min-width: $medium-screen)  {
       margin-left: $content_left;
     }
   }
 
   p {
-    @media screen and (min-width: $medium-screen-up)  {
+    @media screen and (min-width: $medium-screen)  {
       margin-left: $content_left;
     }
     :last-child {

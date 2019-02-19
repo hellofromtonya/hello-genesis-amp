@@ -42,8 +42,8 @@ return [
 			],
 			'genesis-responsive-viewport' => null,
 			'genesis-menus'               => [
-				'primary' => __( 'Main Nav', 'hello-genesis-amp' ),
-				'footer'  => __( 'Footer Nav', 'hello-genesis-amp' ),
+				'primary' => 'Main Nav',
+				'footer'  => 'Footer Nav',
 			],
 			'genesis-structural-wraps'    => [
 				'footer',
@@ -57,13 +57,13 @@ return [
 		'register_sidebars'            => [
 			[
 				'id'          => 'inpost',
-				'name'        => __( 'In Post', 'hello-genesis-amp' ),
-				'description' => __( 'This is the inpost widget that displays right after the post content.', 'hello-genesis-amp' ),
+				'name'        => 'In Post',
+				'description' => 'This is the inpost widget that displays right after the post content.',
 			],
 			[
 				'id'          => 'adspot',
-				'name'        => __( 'Adspot', 'hello-genesis-amp' ),
-				'description' => __( 'This is the adspot widget to let me promote my stuff within articles.', 'hello-genesis-amp' ),
+				'name'        => 'Adspot',
+				'description' => 'This is the adspot widget to let me promote my stuff within articles.',
 			],
 		],
 		'unregister_sidebars'          => [ 'sidebar-alt' ],

@@ -9,10 +9,17 @@
     justify-content: flex-start;
 
     .widget {
-      @include span-columns(6);
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 48.82117%;
+
+      &:last-child {
+        margin-right: 0;
+      }
 
       &:nth-child(2) {
-        @include omega();
+        margin-right: 0;
       }
     }
   }

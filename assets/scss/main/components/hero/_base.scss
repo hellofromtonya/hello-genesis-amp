@@ -1,0 +1,68 @@
+//
+// Hero Section
+//==================================
+
+.section--hero.section {
+  @media screen and (min-width: $full-layout--screen) {
+    min-height: 80vh;
+    margin-bottom: 20vh;
+  }
+
+  @media screen and (min-width: 1280px) {
+    min-height: 80vh;
+  }
+
+  .hero {
+    background-color: $background--accent-color;
+    width: 100%;
+    padding: 40px 10px;
+    margin: 0 auto 20px;
+
+    @media screen and (min-width: $full-layout--screen) {
+      background: linear-gradient( rgba(235,235,235,0.85) 100%, $background--accent-color),
+                  url(#{$imagePath}/tonyamork.png) bottom;
+      background-size: cover;
+
+      width: 75%;
+      max-width: $wrap-max-width-medium;
+      min-height: 60vh;
+      padding: 40px 20px;
+
+      display: flex;
+      flex-wrap: wrap;
+
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    @media screen and (min-width: 1280px) {
+      background-size: contain;
+      max-width: $wrap-max-width-large;
+    }
+  }
+
+  h1, h2, h3, h4, p {
+    text-align: center;
+  }
+
+  h1 {
+    color: $green;
+    @media screen and (min-width: $full-layout--screen) {
+      font-size: calc(40px + (50 - 40) * ((100vw - 768px) / (1200 - 768)));
+    }
+  }
+
+  h2 {
+    color: $orange;
+    font-weight: 600;
+
+    @media screen and (max-width: 480px) {
+      font-size: 16px;
+    }
+
+    span {
+      color: $darkBlue;
+    }
+  }
+}
