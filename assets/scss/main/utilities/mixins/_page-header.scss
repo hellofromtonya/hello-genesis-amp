@@ -18,7 +18,7 @@
   -o-background-size: cover;
   background-size: cover;
 
-  @include media($huge-screen) {
+  @media screen and (min-width: $huge-screen) {
     margin-left: -$margin;
     margin-right: -$margin;
     padding-left: $margin;
@@ -26,13 +26,13 @@
   }
 
   .entry-title {
-    @include media($medium-screen-up)  {
+    @media screen and (min-width: $medium-screen-up)  {
       margin-left: $content_left;
     }
   }
 
   p {
-    @include media($medium-screen-up)  {
+    @media screen and (min-width: $medium-screen-up)  {
       margin-left: $content_left;
     }
     :last-child {

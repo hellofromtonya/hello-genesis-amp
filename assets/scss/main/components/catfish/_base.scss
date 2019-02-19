@@ -27,7 +27,7 @@
     width: 100%;
     padding: 0;
 
-    @include media(320px) {
+    @media screen and (min-width: 320px) {
       width: 200px;
     }
   }

@@ -20,7 +20,7 @@
 
 	li {
 		font-size: 14px;
-		@include media($small-screen-up) {
+		@media screen and (min-width: $small-screen-up) {
 			font-size: 18px;
 		}
 	}
@@ -34,7 +34,7 @@
 		position: relative;
 		width: 100%;
 
-		@include media($medium-screen-up) {
+		@media screen and (min-width: $medium-screen-up) {
 			padding: 15px 20px;
 		}
 	}
@@ -76,7 +76,7 @@
 		opacity: 1;
 		position: static;
 
-		@include media($medium-screen-up) {
+		@media screen and (min-width: $medium-screen-up) {
 			display: block;
 			left: -9999px;
 			margin: 0;
@@ -90,7 +90,7 @@
 		a {
 			border: 0;
 
-			@include media($medium-screen-up) {
+			@media screen and (min-width: $medium-screen-up) {
 				letter-spacing: 0;
 				width: 200px;
 			}
@@ -101,7 +101,7 @@
 		}
 	}
 }
-@include media($medium-screen-up) {
+@media screen and (min-width: $medium-screen-up) {
 
 	.genesis-nav-menu {
 		.sub-menu .sub-menu {

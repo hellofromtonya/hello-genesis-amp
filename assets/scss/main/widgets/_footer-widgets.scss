@@ -75,7 +75,7 @@
 .footer-widgets-1,
 .footer-widgets-2,
 .footer-widgets-3 {
-  @include media($small-screen-up) {
+  @media screen and (min-width: $small-screen-up) {
     margin-right: 5%;
   }
 }
@@ -87,11 +87,11 @@
     margin-bottom: 20px;
   }
 
-  @include media($smaller-screen-up) {
+  @media screen and (min-width: $smaller-screen-up) {
     width: 100%;
   }
 
-  @include media($small-screen-up) {
+  @media screen and (min-width: $small-screen-up) {
     width: 100% - ( 15% * 3 ) - ( 5% * 3 );
   }
 }
@@ -99,11 +99,11 @@
 .footer-widgets-2,
 .footer-widgets-3,
 .footer-widgets-4 {
-  @include media($smaller-screen-up) {
+  @media screen and (min-width: $smaller-screen-up) {
     width: 31%;
     margin-bottom: 40px;
   }
-  @include media($small-screen-up) {
+  @media screen and (min-width: $small-screen-up) {
     width: 15%;
   }
 }

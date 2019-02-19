@@ -2,7 +2,7 @@
   li {
     margin-bottom: 15px;
 
-    @include media(1025) {
+    @media screen and (min-width: 1025) {
       margin-bottom: 30px;
     }
   }

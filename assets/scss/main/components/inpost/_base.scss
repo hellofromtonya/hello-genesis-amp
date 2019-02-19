@@ -2,11 +2,11 @@
   padding: 20px;
   border: 10px dotted $background--accent-color;
 
-  @include media(768px) {
-    @include align-items(stretch);
-    @include display(flex);
-    @include flex-direction(column);
-    @include justify-content(flex-start);
+  @media screen and (min-width: 768px) {
+    align-items: stretch;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 
     .widget {
       @include span-columns(6);

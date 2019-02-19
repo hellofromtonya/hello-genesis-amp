@@ -6,7 +6,7 @@
   padding: 0 10px;
   font-size: 14px;
 
-  @include media($medium-screen-up) {
+  @media screen and (min-width: $medium-screen-up) {
     padding: 0;
     font-size: 16px;
   }

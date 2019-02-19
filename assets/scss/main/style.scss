@@ -2,11 +2,11 @@
 	Theme Name: Genesis+AMP powered child theme from hellofromtonya
 	Theme URI: https://github.com/hellofromtonya/hello-genesis-amp
 
-	Description: A minimalist theme that brings a smile to your face.
+	Description: An minimalist theme that brings a smile to your face.
 	Author: Tonya Mork <hellofromtonya>
 	Author URI: https://hellofromtonya.com
 
-	Version: 1.0.08
+	Version: 1.0.0
 
 	Template: genesis
 	Template Version: 2.8
@@ -29,17 +29,10 @@ $imagePath: 'assets/images';
 @import "utilities/index";
 @import "base/index";
 
-// Layouts
-//@import "layout/index";
-
-// Components
-//@import "components/index";
-
-// Modules
-//@import "modules/index";
+@import "layout/index";
+@import "components/index";
+@import "widgets/index";
+@import "modules/index";
 
 // Templates - Page specific styles
-//@import "templates/posts-page/index";
-
-// Widgets
-//@import "widgets/index";
+@import "templates/posts-page/index";

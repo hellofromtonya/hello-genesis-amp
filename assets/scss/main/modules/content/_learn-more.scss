@@ -12,14 +12,14 @@
 }
 .quick-start {
   overflow: hidden;
-  @include media($small-screen-up) {
+  @media screen and (min-width: $small-screen-up) {
     margin-left: -40px;
     margin-right: -40px;
   }
 
   ul {
     list-style: none;
-    @include media($small-screen-up) {
+    @media screen and (min-width: $small-screen-up) {
       @include align-items(stretch);
       @include display(flex);
       @include flex-direction(row);
@@ -29,15 +29,15 @@
   li {
     height: 200px;
 
-    @include media($smaller-screen-up) {
+    @media screen and (min-width: $smaller-screen-up) {
       font-size: 22px;
     }
 
-    //@include media($small-screen-up) {
+    //@media screen and (min-width: $small-screen-up) {
     //  font-size: 22px;
     //
     //}
-    @include media($small-screen-up) {
+    @media screen and (min-width: $small-screen-up) {
       font-size: 22px;
       @include flex(1);
       &::before {
@@ -49,7 +49,7 @@
         @include triangle(100px 20px, $white, right);
       }
     }
-    @include media($large-screen-up) {
+    @media screen and (min-width: $large-screen-up) {
       font-size: 30px;
     }
     position:relative;
@@ -68,7 +68,7 @@
     font-size: 30px;
     border-bottom: none;
 
-    @include media($large-screen-up) {
+    @media screen and (min-width: $large-screen-up) {
       font-size: 40px;
     }
 
@@ -92,10 +92,10 @@
       font-size: 18px;
       font-weight: 400;
 
-      @include media($small-screen-up) {
+      @media screen and (min-width: $small-screen-up) {
         font-size: 16px;
       }
-      @include media($large-screen-up) {
+      @media screen and (min-width: $large-screen-up) {
         font-size: 18px;
       }
     }
