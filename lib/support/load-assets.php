@@ -46,6 +46,8 @@ add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\enqueue_assets' );
 function enqueue_assets() {
 	enqueue_fonts();
 
+	wp_enqueue_style( 'fontawesome-css', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css', [], '4.6.2' );
+
 	if ( genesis_is_amp() ) {
 		return;
 	}
