@@ -1,3 +1,7 @@
+//
+// Background Text
+//====================================
+
 .background--text, .background--text-top {
   font-size: 0;
   text-transform: lowercase;
@@ -5,8 +9,9 @@
 
 @media screen and (min-width: $full-layout--screen) {
   .background--text-top, .background--text {
-    font-size: calc(30px + (50 - 30) * ((100vw - 768px) / (1200 - 768)));
+    font-size: 96px;
   }
+
   .background--text, .background--text-top {
     font-family: $playfair;
     z-index: 0;
@@ -26,8 +31,11 @@
   }
 
   .background--text-top {
-    position: absolute;
-    top: 50px;
-    right: 120px;
+    text-align: right;
+    //position: absolute;
+    //top: 0;
+    //right: -90px;
+    margin-top: -90px;
+    margin-right: -90px;
   }
 }

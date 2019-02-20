@@ -10,15 +10,11 @@ Structure and Layout
 
 	@media screen and (min-width: $full-layout--screen) {
 		max-width: 80%;
+		padding: 0;
 	}
 
 	@media screen and (min-width: $medium-screen) {
-		max-width: $wrap-max-width-medium;
-	}
-
-	@media screen and (min-width: $huge-screen) {
-		max-width: $wrap-max-width-large;
-		padding: 0;
+		max-width: 100%;
 	}
 }
 
@@ -34,11 +30,12 @@ Structure and Layout
 	margin: 0 auto;
 	max-width: 100%;
 
-	body.blog & {
-		margin-top: 60px;
+	@media screen and (min-width: $full-layout--screen) {
+		margin-top: 20px;
 	}
 
 	@media screen and (min-width: 1200px) {
-		max-width: 900px;
+		max-width: $max-width;
+		margin-top: 60px;
 	}
 }

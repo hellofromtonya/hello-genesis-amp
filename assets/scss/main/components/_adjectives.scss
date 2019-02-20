@@ -1,0 +1,117 @@
+.adjectives-section {
+  position: relative;
+  margin: 30px auto;
+  width: 100%;
+
+  // Set up the distribution.
+  column-count: 2;
+  column-gap: 0;
+
+  @media screen and (min-width: $full-layout--screen) {
+    column-count: 3;
+  }
+
+  @media screen and (min-width: $large-screen) {
+    column-count: 7;
+  }
+}
+
+.adjective-section,
+.entry-content {
+
+  ul.adjectives {
+    list-style-type: none;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 5vh 0;
+    margin: 0 auto;
+  }
+
+  ul.adjectives li {
+    margin-left: auto;
+  }
+
+  ul.adjectives > li {
+    display: inline-flex;
+    list-style-type: none;
+  }
+}
+
+.adjective {
+  border-radius: 50%;
+  text-align: center;
+  height: 125px;
+  width: 125px;
+  //line-height: 115px;
+  padding: 10px;
+  color: $blue;
+
+  // Center the adjective within the circle.
+  align-items: center;
+  justify-content: center;
+
+  font-size: 14px;
+  @media screen and (min-width: $small-screen) {
+    font-size: 16px;
+  }
+
+  @media screen and (min-width: $medium-screen) {
+    font-size: 18px;
+  }
+
+  //@media screen and (min-width: $full-layout--screen) {
+  //  &:nth-child(even) {
+  //    margin-top: -10px;
+  //  }
+  //}
+
+  &.--huge {
+    height: 225px;
+    width: 225px;
+  }
+
+  &.--large {
+    height: 175px;
+    width: 175px;
+  }
+
+  &.--large {
+    height: 150px;
+    width: 150px;
+  }
+
+  &.blue, &.olive, &.orange, &.green {
+    color: $white;
+  }
+
+  &.neon {
+    background-color: $neon;
+  }
+  &.gray {
+    background-color: $gray;
+  }
+  &.yellow {
+    background-color: $yellow;
+  }
+  &.yellow-light {
+    background-color: lighten($yellow, 10%);
+  }
+  &.orange {
+    background-color: $orange;
+  }
+  &.orange-light {
+    background-color: $orangeLight;
+  }
+  &.blue {
+    background-color: $blue;
+  }
+  &.olive {
+    background-color: $olive;
+  }
+  &.green {
+    background-color: $green;
+  }
+  &.red {
+    background-color: $red;
+  }
+}

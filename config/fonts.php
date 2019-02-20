@@ -2,21 +2,21 @@
 /**
  * Fonts configuration.
  *
- * @package     HelloFromTonya\HelloMinimal\Structure
- * @since       2.0.0
- * @author      hellofromTonya
- * @link        https://hellofromtonya.com
+ * @package     Hello_From_Tonya\Hello_Genesis_AMP
+ * @since       1.0.0
+ * @author      Tonya Mork <hellofromtonya>
+ * @link        https://github.com/hellofromtonya/hello-genesis-amp
  * @license     GPL-2+
  */
 
-namespace HelloFromTonya\HelloMinimal\Structure;
+namespace Hello_From_Tonya\Hello_Genesis_AMP;
 
-return array(
-	'handle'        => 'hello_minimal_google_fonts',
-	'font_families' => array(
+return [
+	'handle'        => 'hello_genesis_amp_google_fonts',
+	'font_families' => [
 		'Playfair+Display',
 		'Oswald',
 		'Source+Sans+Pro',
-	),
+	],
 	'encode_subset' => 'latin,latin-ext',
-);
+];

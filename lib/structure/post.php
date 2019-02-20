@@ -139,3 +139,42 @@ function render_inpost_widget_area() {
 		'after'  => '</div></div>',
 	) );
 }
+
+/**
+ * Render the hero area.
+ *
+ * @since 1.0.0
+ */
+function render_hero() {
+	/**
+	 * Adds class attributes to the hero section.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @param array $attributes Array of attributes.
+	 *
+	 * @return array Amended attributes for `entry-header` element.
+	 */
+	add_filter( 'genesis_attr_entry-header', function( array $attributes ) {
+		$attributes['class'] = 'section--hero  section--fullwindow section';
+
+		return $attributes;
+	} );
+
+	remove_action( 'genesis_entry_header', 'genesis_do_post_title' );
+	/**
+	 * Render the hero content.
+	 *
+	 * @since 1.0.0
+	 */
+	add_action( 'genesis_entry_header', function() {
+		$quote = $subtitle1 = genesis_get_custom_field( '_hellofromtonya_hero_quote' );
+		if ( ! $quote ) {
+			$subtitle1 = genesis_get_custom_field( '_hellofromtonya_hero_subtitle1' );
+			$subtitle2 = genesis_get_custom_field( '_hellofromtonya_hero_subtitle2' );
+		}
+
+		include __DIR__ . '/views/hero.php';
+	} );
+
+}

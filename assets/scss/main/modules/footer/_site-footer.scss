@@ -2,29 +2,14 @@
 // Site Footer
 //===============================
 
-.site-footer {
+.site--footer {
 	background-color: $background--accent-color;
-	color: $sidebar--color;
-	font-size: 12px;
-	padding: 10px 0;
-	text-align: left;
-	font-weight: 100;
-
-	@media screen and (min-width: 800px) {
-		font-size: $footer-font-size;
-		padding: 20px 0;
-	}
-
-	a {
-		color: $white;
-
-		&:hover, &:focus, &:active {
-			border-bottom: 0;
-			color: $orange;
-		}
-	}
+	margin-top: 40px;
+	padding: 10px 20px;
 
 	p {
-		margin: 0;
+		margin-bottom: 0;
+		font-size: 14px;
+		text-align: left;
 	}
 }

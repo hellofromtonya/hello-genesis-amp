@@ -44,8 +44,9 @@ add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\enqueue_fonts' );
  */
 function enqueue_fonts() {
 	$config = require_once get_theme_dir() . '/config/fonts.php';
+	$fonts  = get_fonts_url( $config );
 
-	wp_enqueue_style( $config['handle'], get_fonts_url( $config ), array(), null );
+	wp_enqueue_style( $config['handle'], $fonts, [], null );
 }
 
 /**
@@ -53,15 +54,15 @@ function enqueue_fonts() {
  *
  * @since  1.0.0
  *
- * @param array $config
+ * @param array $config Array of fonts.
  *
  * @return string
  */
 function get_fonts_url( array $config ) {
-	$query_args = array(
-		'family' => urlencode( implode( '|', $config['font_families'] ) ),
-		'subset' => urlencode( $config['encode_subset'] ),
-	);
+	$query_args = [
+		'family' => implode( '|', $config['font_families'] ),
+		'subset' => $config['encode_subset'],
+	];
 
 	$fonts_url = add_query_arg( $query_args, '//fonts.googleapis.com/css' );
 

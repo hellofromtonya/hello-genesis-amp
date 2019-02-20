@@ -2,19 +2,19 @@
 // Checkered columns
 //========================
 
-.grid-blocked.--checkered {
+.--checkered {
 
   &:not(.--row-reverse) {
-    .grid-block {
+    .column {
       &:nth-child(2n+1) {
-        background: linear-gradient(270deg, $white 0, $white 50%, $grid-box--background 0, $grid-box--background);
+        background: linear-gradient(270deg, $white 0, $white 50%, $column--background 0, $column--background);
         @media screen and (min-width: $full-layout--screen) {
           padding-right: 20%;
         }
       }
 
       &:nth-child(2n) {
-        background: linear-gradient(90deg, $white 0, $white 50%, $grid-box--background 0, $grid-box--background);
+        background: linear-gradient(90deg, $white 0, $white 50%, $column--background 0, $column--background);
         text-align: right;
         @media screen and (min-width: $full-layout--screen) {
           padding-left: 20%;

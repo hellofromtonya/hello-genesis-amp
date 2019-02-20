@@ -12,6 +12,8 @@
 
 namespace Hello_From_Tonya\Hello_Genesis_AMP\Support;
 
+use function Hello_From_Tonya\Hello_Genesis_AMP\get_theme_dir;
+
 //add_filter( 'get_the_content_more_link', __NAMESPACE__ . '\modify_the_content_more_link', 10, 2 );
 /**
  * Modify the content more_link.
@@ -45,5 +47,5 @@ function render_category_top_background_title() {
 	}
 
 	$category_name = $category[0]->name;
-	include CHILD_THEME_DIR . '/lib/views/background-text-top.php';
+	include get_theme_dir() . '/lib/views/background-text-top.php';
 }

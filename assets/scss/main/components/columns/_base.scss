@@ -1,0 +1,24 @@
+.entry-content {
+
+  ul.columns {
+    width: 100%;
+    list-style-type: none;
+    margin-bottom: 0;
+
+    li {
+      margin-left: 0;
+    }
+
+    > li {
+      list-style-type: none;
+    }
+  }
+}
+
+.columns {
+  width: 100%;
+
+  &.--boxed {
+    @include flexgrid();
+  }
+}

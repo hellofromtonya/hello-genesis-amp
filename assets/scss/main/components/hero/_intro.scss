@@ -8,9 +8,9 @@
   position: relative;
 
   p {
-      @media screen and (min-width: $medium-screen) {
-        font-size: 36px;
-      }
+    @media screen and (min-width: $medium-screen) {
+      font-size: 28px;
+    }
     margin-bottom: 0;
 
     &::before {

@@ -1,0 +1,45 @@
+@mixin flexgrid() {
+  overflow: hidden;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+
+  &.--row-reverse {
+    flex-direction: row-reverse;
+  }
+
+  .column {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  @media screen and (min-width: 800px) {
+    // 2 columns
+    &.--col2 .column {
+      width: 50%;
+    }
+
+    &.--checkered:not(.--half-background) .column {
+      flex: 1 50%;
+      position: relative;
+
+      &:nth-child(4n) {
+        left: -50%;
+      }
+
+      &:nth-child(4n-1) {
+        left: 50%;
+      }
+    }
+
+    &.--checkered.--row-reverse:not(.--half-background) .column {
+      &:nth-child(4n) {
+        left: 50%;
+      }
+
+      &:nth-child(4n-1) {
+        left: -50%;
+      }
+    }
+  }
+}

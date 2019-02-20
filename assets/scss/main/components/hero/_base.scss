@@ -2,7 +2,8 @@
 // Hero Section
 //==================================
 
-.section--hero.section {
+.section--hero {
+
   @media screen and (min-width: $full-layout--screen) {
     min-height: 80vh;
     margin-bottom: 20vh;
@@ -13,32 +14,31 @@
   }
 
   .hero {
-    background-color: $background--accent-color;
     width: 100%;
-    padding: 40px 10px;
     margin: 0 auto 20px;
 
     @media screen and (min-width: $full-layout--screen) {
-      background: linear-gradient( rgba(235,235,235,0.85) 100%, $background--accent-color),
-                  url(#{$imagePath}/tonyamork.png) bottom;
-      background-size: cover;
-
-      width: 75%;
-      max-width: $wrap-max-width-medium;
-      min-height: 60vh;
-      padding: 40px 20px;
-
-      display: flex;
-      flex-wrap: wrap;
-
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
+      padding-top: 0;
     }
 
-    @media screen and (min-width: 1280px) {
-      background-size: contain;
-      max-width: $wrap-max-width-large;
+    .wrap {
+      background-color: $background--accent-color;
+
+      @media screen and (min-width: $full-layout--screen) {
+        background-color: transparent;
+        background: linear-gradient(rgba(235, 235, 235, 0.88) 100%, $background--accent-color),
+                    url(#{$imagePath}/background.jpg) top center repeat;
+
+        min-height: 60vh;
+        padding: 20vh 10vh;
+
+        display: flex;
+        flex-wrap: wrap;
+
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
     }
   }
 
