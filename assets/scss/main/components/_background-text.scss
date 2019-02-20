@@ -3,13 +3,22 @@
 //====================================
 
 .background--text, .background--text-top {
-  font-size: 0;
+  font-size: 36px;
   text-transform: lowercase;
+
+  font-family: $playfair;
+  z-index: 0;
+
+  color: $background--accent-color;
+  text-align: right;
+  font-weight: 900;
+  line-height: 1;
 }
 
 @media screen and (min-width: $full-layout--screen) {
   .background--text-top, .background--text {
-    font-size: 96px;
+    //font-size: 96px;
+    font-size: calc(40px + (70 - 40) * ((100vw - 768px) / (1200 - 768)));
   }
 
   .background--text, .background--text-top {

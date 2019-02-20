@@ -1,11 +1,6 @@
 <aside class="sidebar--right">
 	<div id="hamburger-menu" class="hamburger--menu">
-		<div class="hamburger--text">Menu</div>
-		<div class="hamburger--lines">
-			<span class="hamburger--line"></span>
-			<span class="hamburger--line"></span>
-			<span class="hamburger--line"></span>
-		</div>
+		<button class="hamburger-button" on="tap:menu-container"><i class="fa fa-bars" aria-hidden="true"><span class="screen-reader-text">Show Main Menu</span></i></button>
 	</div>
 
 	<div class="sidebar--wrapper">

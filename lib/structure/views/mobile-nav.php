@@ -1,7 +1,3 @@
 <div id="hamburger-menu--mobile" class="hamburger--menu hamburger-menu--mobile">
-	<div class="hamburger--lines">
-		<span class="hamburger--line"></span>
-		<span class="hamburger--line"></span>
-		<span class="hamburger--line"></span>
-	</div>
+	<button class="hamburger-button" on="tap:menu-container"><i class="fa fa-bars" aria-hidden="true"><span class="screen-reader-text">Show Main Menu</span></i></button>
 </div>

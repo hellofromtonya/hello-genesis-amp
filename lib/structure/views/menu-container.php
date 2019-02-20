@@ -1,4 +1,4 @@
-<aside id="menu-container" class="menu--container animated">
+<amp-lightbox id="menu-container" class="menu--container" layout="nodisplay" scrollable>
 	<div class="wrap">
 		<a href="https://hellofromtonya.com" class="menu--item menu--item--home"><i class="fa fa-home" aria-hidden="true"><span class="screen-reader-text">Home</span></i> Home</a>
 		<h2>More about me:</h2>
@@ -40,4 +40,4 @@
 			</ul>
 		</footer>
 	</div>
-</aside>
+</amp-lightbox>
