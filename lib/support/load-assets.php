@@ -12,6 +12,7 @@
 
 namespace Hello_From_Tonya\Hello_Genesis_AMP\Support;
 
+use function Hello_From_Tonya\Hello_Genesis_AMP\get_theme_version;
 use function Hello_From_Tonya\Hello_Genesis_AMP\is_in_debug;
 use function Hello_From_Tonya\Hello_Genesis_AMP\get_theme_dir;
 use function Hello_From_Tonya\Hello_Genesis_AMP\get_theme_url;
@@ -34,7 +35,30 @@ function change_stylesheet_uri_to_min( $stylesheet_uri ) {
 	return get_theme_url() . '/style.min.css';
 }
 
-add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\enqueue_fonts' );
+add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\enqueue_assets' );
+/**
+ * Enqueue assets.
+ *
+ * @since 1.0.0
+ *
+ * @return void Bails out when AMP endpoint.
+ */
+function enqueue_assets() {
+	enqueue_fonts();
+
+	if ( genesis_is_amp() ) {
+		return;
+	}
+
+	wp_enqueue_script(
+		'hello_smooth_scroll',
+		get_theme_url() . '/assets/dist/jquery.project.min.js',
+		[ 'jquery' ],
+		get_theme_version(),
+		true
+	);
+}
+
 /**
  * Load fonts.
  *

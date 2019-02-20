@@ -175,6 +175,19 @@ function render_hero() {
 		}
 
 		include __DIR__ . '/views/hero.php';
+
+		$nav_id = genesis_get_custom_field( '_hellofromtonya_hero_nav' );
+		if ( $nav_id ) {
+			wp_nav_menu( [
+				'fallback_cb'     => '',
+				'container'       => 'nav',
+				'container_class' => 'hero--nav',
+				'menu_class'      => 'hero--nav-menu',
+				'menu'            => wp_get_nav_menu_object( $nav_id ),
+			] );
+		}
+
+		include __DIR__ . '/views/intro-scroll.html';
 	} );
 
 }

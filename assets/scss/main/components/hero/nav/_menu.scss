@@ -1,0 +1,19 @@
+.hero--nav {
+  display: none;
+}
+
+@media screen and (min-width: $full-layout--screen) {
+  .hero--nav {
+    display: inline-block;
+    position: absolute;
+    bottom: -25px;
+    left: 20px;
+
+    ul {
+      list-style: none;
+      width: 100%;
+      background-color: $darkBlue;
+      padding: 10px 20px;
+    }
+  }
+}

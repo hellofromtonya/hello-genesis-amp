@@ -32,7 +32,7 @@ function get_theme_dir() {
 function get_theme_url() {
 	static $url = '';
 
-	if ( ! empty( $url ) ) {
+	if ( empty( $url ) ) {
 		$url = get_stylesheet_directory_uri();
 	}
 

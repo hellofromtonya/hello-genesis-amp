@@ -3,22 +3,18 @@
 //==================================
 
 .section--hero {
+  padding-top: 0;
 
   @media screen and (min-width: $full-layout--screen) {
-    min-height: 80vh;
-    margin-bottom: 20vh;
-  }
-
-  @media screen and (min-width: 1280px) {
-    min-height: 80vh;
+    padding-top: 20px;
   }
 
   .hero {
     width: 100%;
-    margin: 0 auto 20px;
+    margin: 0 auto;
 
     @media screen and (min-width: $full-layout--screen) {
-      padding-top: 0;
+      padding-top: 40px;
     }
 
     .wrap {
@@ -29,8 +25,7 @@
         background: linear-gradient(rgba(235, 235, 235, 0.88) 100%, $background--accent-color),
                     url(#{$imagePath}/background.jpg) top center repeat;
 
-        min-height: 60vh;
-        padding: 20vh 10vh;
+        padding: 12vh 10vh;
 
         display: flex;
         flex-wrap: wrap;
@@ -54,13 +49,15 @@
   }
 
   h2 {
-    color: $orange;
     font-weight: 600;
 
     @media screen and (max-width: 480px) {
       font-size: 16px;
     }
+  }
 
+  h2, h3 {
+    color: $orange;
     span {
       color: $darkBlue;
     }
