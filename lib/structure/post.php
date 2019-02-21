@@ -143,7 +143,7 @@ function render_inpost_widget_area() {
 	}
 
 	genesis_widget_area( 'adspot', array(
-		'before' => '<div class="adspot"><div class="wrap">',
+		'before' => '<div class="adspot --dotted-box"><div class="wrap">',
 		'after'  => '</div></div>',
 	) );
 

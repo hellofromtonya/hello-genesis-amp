@@ -22,3 +22,14 @@
   padding: 0 50vw;
   z-index: -1;
 }
+
+.--dotted-box {
+  padding: 20px;
+  border: 10px dotted $background--accent-color;
+  margin: 40px 0 80px;
+
+  .wrap {
+    padding: 20px;
+    background-color: #f2f2f2;
+  }
+}
