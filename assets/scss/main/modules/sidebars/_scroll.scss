@@ -35,19 +35,20 @@
 
   &--up {
     position: absolute;
-    top: 0;
-    right: 25px;
+    top: -5px;
+    right: 32px;
     width: 0;
     height: 0;
 
     &.slideInUp {
-      border-left: 25px solid transparent;
-      border-right: 25px solid transparent;
-      border-bottom: 25px solid $sidebar--color;
+      border-left: 18px solid transparent;
+      border-right: 18px solid transparent;
+      border-bottom: 18px solid $sidebar--color;
+      border-top: 0;
     }
 
     &:hover {
-      border-bottom: 25px solid $sidebar--hover-color;
+      border-bottom: 18px solid $orange;
     }
   }
 }
@@ -57,7 +58,12 @@ html[amp] .scroll--up {
   outline: none;
   opacity: 0;
   background-color: transparent;
-  border-left: 25px solid transparent;
-  border-right: 25px solid transparent;
-  border-bottom: 25px solid $sidebar--color;
+  border-left: 18px solid transparent;
+  border-right: 18px solid transparent;
+  border-bottom: 18px solid $sidebar--color;
+  border-top: 0;
+
+  &:hover {
+    border-bottom: 18px solid $orange;
+  }
 }

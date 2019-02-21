@@ -1,0 +1,15 @@
+.mouse-scroller {
+  color: $sidebar--color;
+  width: 20px;
+  opacity: 1;
+  transition: opacity .5s;
+
+  &--stroke {
+    stroke: $sidebar--color;
+  }
+
+  &--scroller {
+    animation: scrollBouncer 1s infinite;
+    stroke: #ada99d;
+  }
+}

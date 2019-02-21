@@ -204,8 +204,6 @@ function render_hero() {
 				'menu'            => wp_get_nav_menu_object( $nav_id ),
 			] );
 		}
-
-		include __DIR__ . '/views/intro-scroll.html';
 	} );
 
 }

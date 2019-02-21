@@ -8,33 +8,33 @@
   @media screen and (min-width: $full-layout--screen) {
     padding-top: 20px;
   }
+}
 
-  .hero {
+.hero {
+  margin: 0 -50vw;
+  padding: 0 50vw;
+  overflow: hidden;
+
+  @media screen and (min-width: $full-layout--screen) {
+    padding-top: 40px;
+  }
+
+  background-color: transparent;
+  background: linear-gradient(rgba(255, 255, 255, 0.88) 100%, $white),
+              url(#{$imagePath}/tonyamork-4quad.png) top left repeat;
+
+  .wrap {
+    max-width: $max-width;
     width: 100%;
     margin: 0 auto;
+    padding: 12vh 10vh;
 
-    @media screen and (min-width: $full-layout--screen) {
-      padding-top: 40px;
-    }
+    display: flex;
+    flex-wrap: wrap;
 
-    .wrap {
-      background-color: $background--accent-color;
-
-      @media screen and (min-width: $full-layout--screen) {
-        background-color: transparent;
-        background: linear-gradient(rgba(235, 235, 235, 0.88) 100%, $background--accent-color),
-                    url(#{$imagePath}/background.jpg) top center repeat;
-
-        padding: 12vh 10vh;
-
-        display: flex;
-        flex-wrap: wrap;
-
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-      }
-    }
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
 
   h1, h2, h3, h4, p {

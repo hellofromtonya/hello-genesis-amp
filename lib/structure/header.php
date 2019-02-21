@@ -26,7 +26,7 @@ add_action( 'genesis_before', __NAMESPACE__ . '\render_fullpage_menu_container' 
  * @return void
  */
 function render_fullpage_menu_container() {
-	include __DIR__ . '/views/menu-container.php';
+	include __DIR__ . '/views/fullpage-menu-container.php';
 }
 
 add_action( 'genesis_site_title', __NAMESPACE__ . '\render_site_title_area' );

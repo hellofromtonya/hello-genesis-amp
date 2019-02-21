@@ -1,32 +1,27 @@
 $hamburgerSpacing: 8px;
 
 .hamburger--menu {
-  position: absolute;
-  top: 40px;
-  right: 0;
-  width: 60px;
-  height: 40px;
+  margin: 40px auto 0;
+  text-align: center;
 
   @media screen and (min-width: $full-layout--screen) {
-    left: 30px;
-    right: 0;
-
     &.hamburger-menu--mobile {
       display: none;
     }
   }
 
-  cursor: pointer;
-  z-index: 10001;
+  z-index: 99;
   transform: translate(0, -20px);
-  border-bottom: none;
+}
 
-  @media screen and (min-width: 800px) {
-    width: 80px;
-  }
+.hamburger-label {
+  font-size: 14px;
 }
 
 .hamburger-button {
+  font-size: 24px;
+  width: 100%;
+
   &, &:hover, &:focus, &:active {
     border: 0;
     background-color: transparent;

@@ -13,7 +13,7 @@ namespace Hello_From_Tonya\Hello_Genesis_AMP\Structure;
 
 remove_action( 'genesis_after_header', 'genesis_do_nav' );
 
-add_action( 'genesis_header', __NAMESPACE__ . '\render_mobile_nav' );
+//add_action( 'genesis_header', __NAMESPACE__ . '\render_mobile_nav' );
 /**
  * Render the mobile nav.
  *

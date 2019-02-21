@@ -1,12 +1,12 @@
-.menu--container {
-  width: 0%;
-  height: 0;
-  min-height: 800px;
+.fullpage-menu-container {
+  opacity: 0;
+  width: 100%;
   position: fixed;
   display: block;
   top: 0;
-  overflow: hidden;
-  opacity: 0;
+  overflow: auto;
+  right: 0;
+  z-index: 99;
   background-color: $white;
   color: $darkBlue;
 
@@ -31,14 +31,19 @@
   }
 }
 
+.fullpage-menu--close {
+  position: absolute;
+  top: 20px;
+  right: 40px;
+  background-color: transparent;
+  color: $black;
+  font-size: 36px;
+  border: 0;
+  outline: 0;
+}
+
 body.menu--open .menu--container {
   opacity: 1;
-  width: 100%;
-  min-height: 500px;
-  height: 100%;
-  overflow: auto;
-  right: 0;
-  z-index: 99;
 
   @media screen and (min-width: $full-layout--screen) {
     width: 80%;
