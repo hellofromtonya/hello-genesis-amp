@@ -1,0 +1,24 @@
+//
+// Background Cues for some added fun.
+//=========================================
+
+.--middle-border {
+  background: linear-gradient(to right,
+          transparent 0%,
+          transparent calc(50% - 0.81px),
+          $sidebar--color calc(50% - 0.8px),
+          $sidebar--color calc(50% + 0.8px),
+          transparent calc(50% + 0.81px),
+          transparent 100%);
+}
+
+// Diagonally skewed background.
+.--diagonal-background {
+  background-color: $background--accent-color;
+  content: '';
+  transform: skewY(-5deg);
+  width: 100%;
+  margin: 0 -50vw;
+  padding: 0 50vw;
+  z-index: -1;
+}

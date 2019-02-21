@@ -1,0 +1,36 @@
+.adjective {
+  &.blue, &.olive, &.orange, &.green {
+    color: $white;
+  }
+
+  &.neon {
+    background-color: $neon;
+  }
+  &.gray {
+    background-color: $gray;
+  }
+  &.yellow {
+    background-color: $yellow;
+  }
+  &.yellow-light {
+    background-color: lighten($yellow, 10%);
+  }
+  &.orange {
+    background-color: $orange;
+  }
+  &.orange-light {
+    background-color: $orangeLight;
+  }
+  &.blue {
+    background-color: $blue;
+  }
+  &.olive {
+    background-color: $olive;
+  }
+  &.green {
+    background-color: $green;
+  }
+  &.red {
+    background-color: $red;
+  }
+}

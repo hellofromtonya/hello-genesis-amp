@@ -1,0 +1,21 @@
+.adjective {
+  border-radius: 50%;
+  text-align: center;
+  height: 125px;
+  width: 125px;
+  padding: 10px;
+  color: $blue;
+
+  // Center the adjective within the circle.
+  align-items: center;
+  justify-content: center;
+
+  font-size: 14px;
+  @media screen and (min-width: $small-screen) {
+    font-size: 16px;
+  }
+
+  @media screen and (min-width: $medium-screen) {
+    font-size: 18px;
+  }
+}

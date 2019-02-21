@@ -22,13 +22,3 @@
     @include flexgrid();
   }
 }
-
-.--middle-border {
-  background: linear-gradient(to right,
-          transparent 0%,
-          transparent calc(50% - 0.81px),
-          $sidebar--color calc(50% - 0.8px),
-          $sidebar--color calc(50% + 0.8px),
-          transparent calc(50% + 0.81px),
-          transparent 100%);
-}

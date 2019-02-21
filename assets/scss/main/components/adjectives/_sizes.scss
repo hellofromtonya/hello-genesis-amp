@@ -1,0 +1,16 @@
+.adjective {
+  &.--huge {
+    height: 225px;
+    width: 225px;
+  }
+
+  &.--large {
+    height: 175px;
+    width: 175px;
+  }
+
+  &.--large {
+    height: 150px;
+    width: 150px;
+  }
+}
