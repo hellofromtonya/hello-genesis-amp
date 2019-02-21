@@ -1,5 +1,5 @@
 <div class="background--text-top"><?php echo esc_html( genesis_get_custom_field( '_hellofromtonya_hero_background_text', $post_id ) ); ?></div>
-<!-- Hero area -->
+
 <div class="hero ">
 	<div class="wrap">
 		<h1 class="hero-title"><?php echo esc_html( $page_title ); ?></h1>

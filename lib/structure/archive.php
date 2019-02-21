@@ -38,5 +38,5 @@ function render_archive_top_background_text() {
 
 	$category_name = $term->name;
 
-	include __DIR__ . '/views/background-text-top.php';
+	include __DIR__ . '/views/category-top-text.php';
 }

@@ -1,41 +1,10 @@
-body.blog {
-  .page-header {
-    position: relative;
-    padding-top: 10px;
+body.blog, body.single {
+  .section--hero .background--text-top,
+  .category-top-text .background--text-top {
+    margin-right: 0;
 
-    @media screen and (min-width: $full-layout--screen) {
-      padding-top: 20vh;
-    }
-
-    .wrap {
-      width: 100%;
-      padding: 10px;
-      text-align: center;
-
-      @media screen and (min-width: $full-layout--screen) {
-        background: linear-gradient(rgba(235, 235, 235, 0.85) 100%, $background--accent-color),
-        url(#{$imagePath}/tonyamork.png) bottom;
-        background-size: cover;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 75%;
-        height: 60vh;
-        padding: 20px;
-      }
-
-      @media screen and (min-width: 1280px) {
-        background-size: contain;
-        height: 60vh;
-      }
-    }
-  }
-
-  .page-header--content {
-    flex: 1;
-
-    h1, p, & {
-      text-align: center;
+    @media screen and (min-width: $large-screen) {
+      margin-right: 180px;
     }
   }
 }

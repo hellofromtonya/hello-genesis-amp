@@ -3,9 +3,5 @@
 //==================================
 
 .section--hero {
-  padding-top: 20px;
-
-  @media screen and (min-width: $full-layout--screen) {
-    padding-top: 40px;
-  }
+  padding-top: 40px;
 }

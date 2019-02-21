@@ -31,13 +31,11 @@ add_action(
 	}
 );
 
-add_action( 'genesis_entry_header', __NAMESPACE__ . '\render_single_top_background_text', 1 );
+add_action( 'genesis_before_content_sidebar_wrap', __NAMESPACE__ . '\render_single_top_background_text', 1 );
 /**
  * Add the first category as the background top text (accent feature).
  *
  * @since 1.0.0
- *
- * @return void
  */
 function render_single_top_background_text() {
 	if ( ! is_single() ) {
@@ -48,7 +46,8 @@ function render_single_top_background_text() {
 		return;
 	}
 	$category_name = $category[0]->name;
-	include __DIR__ . '/views/background-text-top.php';
+
+	include __DIR__ . '/views/category-top-text.php';
 }
 
 add_filter( 'genesis_post_info', __NAMESPACE__ . '\date_only_for_post_info' );
@@ -57,7 +56,7 @@ add_filter( 'genesis_post_info', __NAMESPACE__ . '\date_only_for_post_info' );
  *
  * @since 1.0.0
  *
- * @return string
+ * @return string new post info.
  */
 function date_only_for_post_info() {
 	return '[post_date] | [post_categories before=""]';
@@ -70,9 +69,9 @@ add_filter( 'get_the_content_more_link', __NAMESPACE__ . '\change_the_read_more_
  *
  * @since 1.0.0
  *
- * @param string $html
+ * @param string $html Read more link HTML.
  *
- * @return string
+ * @return string amended HTML.
  */
 function change_the_read_more_link( $html ) {
 	$html = change_read_more_text( $html, 'Continue reading' );
@@ -94,7 +93,7 @@ function change_the_read_more_link( $html ) {
  * @param string $html
  * @param string $dots Dots pattern to strip off
  *
- * @return string
+ * @return string amended HTML.
  */
 function strip_off_read_more_opening_dots( $html, $dots = '&#x02026; ' ) {
 	return substr( $html, strlen( $dots ) );
@@ -109,7 +108,7 @@ function strip_off_read_more_opening_dots( $html, $dots = '&#x02026; ' ) {
  * @param string $html             Read more link HTML
  * @param string $replacement_text Replacement text
  *
- * @return string
+ * @return string amended HTML.
  */
 function change_read_more_text( $html, $replacement_text ) {
 	return str_replace( '[Read more...]', $replacement_text, $html );
@@ -120,8 +119,6 @@ add_action( 'genesis_after_entry', __NAMESPACE__ . '\add_post_prev_next_to_singl
  * Add Prev/Next to bottom of the singles.
  *
  * @since 1.0.0
- *
- * @return void
  */
 function add_post_prev_next_to_singles() {
 	if ( ! is_single() ) {
@@ -136,11 +133,9 @@ function add_post_prev_next_to_singles() {
 
 add_action( 'genesis_after_entry', __NAMESPACE__ . '\render_inpost_widget_area', 7 );
 /**
- * Description.
+ * Render the inpost widget areas.
  *
  * @since 1.0.0
- *
- * @return void
  */
 function render_inpost_widget_area() {
 	if ( ! is_single() ) {
