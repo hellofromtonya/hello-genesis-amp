@@ -13,6 +13,24 @@ namespace Hello_From_Tonya\Hello_Genesis_AMP\Structure;
 
 remove_all_actions( 'genesis_entry_footer' );
 
+add_action(
+	'genesis_before_entry_content',
+	/**
+	 * Render the scroll to top target HTML when AMP endpoint.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @return void
+	 */
+	function() {
+		if ( ! genesis_is_amp() ) {
+			return;
+		}
+
+		require __DIR__ . '/views/scroll-to-target.html';
+	}
+);
+
 add_action( 'genesis_entry_header', __NAMESPACE__ . '\render_single_top_background_text', 1 );
 /**
  * Add the first category as the background top text (accent feature).

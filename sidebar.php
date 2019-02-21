@@ -36,7 +36,11 @@
 
 		<div class="scroll--container">
 			<div class="scroll--line"></div>
-			<div class="scroll--up animated"></div>
+			<?php if ( genesis_is_amp() ) : ?>
+			<button id="scrollToTopButton" on="tap:top-of-page.scrollTo(duration=200)" class="scroll--up"></button>
+			<?php else: ?>
+				<div class="scroll--up animated"></div>
+			<?php endif; ?>
 			<div class="scroll--text"> Scroll</div>
 		</div>
 	</div>
