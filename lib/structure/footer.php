@@ -21,5 +21,7 @@ add_action( 'genesis_footer', __NAMESPACE__ . '\render_site_footer' );
  * @return void
  */
 function render_site_footer() {
+	$copyright = do_shortcode( '[footer_copyright first="2017"]' );
+
 	include __DIR__ .'/views/site-footer.php';
 }
