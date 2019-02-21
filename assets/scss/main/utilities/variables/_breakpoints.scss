@@ -13,9 +13,9 @@ $full-layout--screen: 768px;
 
 // Global Screen Sizes
 //------------------------------------------------------------------------------
-$smallest-screen: $max-width - 820px; // 320px;
-$smaller-screen: $max-width - 660px; // 480px;
-$small-screen: $max-width - 380px; // 760px;
-$medium-screen: $max-width - 117px; // 1023px
-$large-screen: $max-width + 40px; // 1180px
-$huge-screen: $max-width + 460px; // 1600px
+$smallest-screen: 320px;
+$smaller-screen: 480px;
+$small-screen: 760px;
+$medium-screen: 1023px;
+$large-screen: 1180px;
+$huge-screen: 1600px;

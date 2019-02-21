@@ -15,9 +15,16 @@
   line-height: 1;
 }
 
+.background--text-top {
+  margin-bottom: 20px;
+}
+
+.background--text {
+  font-size: 0;
+}
+
 @media screen and (min-width: $full-layout--screen) {
   .background--text-top, .background--text {
-    //font-size: 96px;
     font-size: calc(40px + (70 - 40) * ((100vw - 768px) / (1200 - 768)));
   }
 
@@ -41,10 +48,12 @@
 
   .background--text-top {
     text-align: right;
-    //position: absolute;
-    //top: 0;
-    //right: -90px;
-    margin-top: -90px;
-    margin-right: -90px;
+    margin-top: -20px;
+    margin-right: -10px;
+
+    @media screen and (min-width: $large-screen) {
+      margin-top: -90px;
+      margin-right: -90px;
+    }
   }
 }

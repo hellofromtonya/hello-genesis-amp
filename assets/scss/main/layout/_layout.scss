@@ -39,3 +39,12 @@ Structure and Layout
 		margin-top: 60px;
 	}
 }
+
+main.content {
+	@media screen and (min-width: $full-layout--screen) and (max-width: 1200px) {
+		margin-left: 100px;
+		margin-right: 100px;
+		padding: 0 20px;
+		position: relative;
+	}
+}
