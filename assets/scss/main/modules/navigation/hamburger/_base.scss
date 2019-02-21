@@ -1,17 +1,14 @@
 $hamburgerSpacing: 8px;
 
 .hamburger--menu {
-  margin: 40px auto 0;
-  text-align: center;
+  position: absolute;
+  top: 20px;
+  right: 30px;
 
-  @media screen and (min-width: $full-layout--screen) {
-    &.hamburger-menu--mobile {
-      display: none;
-    }
-  }
-
-  z-index: 99;
-  transform: translate(0, -20px);
+  // Align the label and button.
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .hamburger-label {
@@ -20,7 +17,6 @@ $hamburgerSpacing: 8px;
 
 .hamburger-button {
   font-size: 24px;
-  width: 100%;
 
   &, &:hover, &:focus, &:active {
     border: 0;

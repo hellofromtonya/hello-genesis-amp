@@ -20,14 +20,18 @@
   }
 
   background-color: transparent;
-  background: linear-gradient(rgba(255, 255, 255, 0.88) 100%, $white),
+  background: linear-gradient(rgba(255, 255, 255, 0.82) 100%, $white),
               url(#{$imagePath}/tonyamork-4quad.png) top left repeat;
 
   .wrap {
     max-width: $max-width;
     width: 100%;
     margin: 0 auto;
-    padding: 12vh 10vh;
+    padding: 0;
+
+    @media screen and (min-width: $full-layout--screen) {
+      padding: 12vh 10vh;
+    }
 
     display: flex;
     flex-wrap: wrap;
@@ -41,11 +45,13 @@
     text-align: center;
   }
 
-  h1 {
+  .hero-title {
     color: $green;
-    @media screen and (min-width: $full-layout--screen) {
-      font-size: calc(40px + (50 - 40) * ((100vw - 768px) / (1200 - 768)));
-    }
+    font-size: calc(40px + (50 - 40) * ((100vw - 768px) / (1200 - 768)));
+    transform: scaleY(2);
+    transform-origin: 0 0;
+    margin-top: 0;
+    margin-bottom: 40px;
   }
 
   h2 {

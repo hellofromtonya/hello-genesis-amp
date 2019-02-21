@@ -1,9 +1,4 @@
 <aside class="sidebar--right">
-	<div id="hamburger-menu" class="hamburger--menu">
-		<label for="hamburger-menu" class="hamburger-label">Menu</label>
-		<button class="hamburger-button" on="tap:fullpage-menu-container"><i class="fa fa-bars" aria-hidden="true"><span class="screen-reader-text">Show Main Menu</span></i></button>
-	</div>
-
 	<!-- bottom container -->
 	<div class="scroll--container">
 		<!-- scroll to the top -->

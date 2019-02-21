@@ -3,14 +3,9 @@
 //====================
 
 .site-header {
+  position: fixed;
   width: 100%;
-  color: $white;
-
-  @media screen and (min-width: $full-layout--screen) {
-    width: 150px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    bottom: 0;
-  }
+  top: 0;
+  height: 90px;
+  z-index: 49;
 }

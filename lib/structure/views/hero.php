@@ -1,7 +1,8 @@
 <div class="background--text-top"><?php echo esc_html( genesis_get_custom_field( '_hellofromtonya_hero_background_text' ) ); ?></div>
-<div class="hero">
+<!-- Hero area -->
+<div class="hero ">
 	<div class="wrap">
-		<h1 class="entry-title"><?php echo esc_html( get_the_title() ); ?></h1>
+		<h1 class="hero-title"><?php echo esc_html( get_the_title() ); ?></h1>
 		<?php if ( $quote )  : ?>
 		<div class="quote--intro">
 			<p><?php echo wp_kses_post( $quote ); ?></p>
