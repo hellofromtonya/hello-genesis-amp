@@ -1,12 +1,8 @@
 .sidebar--right, .sidebar--left {
-  display: none;
-
-  @media screen and (min-width: $full-layout--screen) {
-    display: block;
-    position: fixed;
-    top: 0;
-    bottom: 0;
-  }
+  display: block;
+  position: fixed;
+  top: 0;
+  bottom: 0;
 }
 
 .sidebar--left {

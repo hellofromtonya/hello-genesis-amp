@@ -6,9 +6,14 @@
     right: 0;
     width: 100%;
 
+    opacity: 0;
     display: flex;
     align-items: center;
     justify-content: center;
+
+    @media screen and (min-width: $full-layout--screen) {
+      opacity: 1;
+    }
   }
 
   &--line {
