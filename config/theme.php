@@ -123,7 +123,7 @@ return [
 				'description' => 'This is the adspot widget to let me promote my stuff within articles.',
 			],
 		],
-		'unregister_sidebars'          => [ 'sidebar-alt' ],
+		'unregister_sidebars'          => [ 'header-right', 'sidebar', 'sidebar-alt' ],
 		'disable_edit_link'            => true,
 		'remove_page_templates'        => [ 'page_blog.php' ],
 		'do_shortcodes_in_text_widget' => true,

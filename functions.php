@@ -123,3 +123,6 @@ require_once get_template_directory() . '/lib/init.php';
 
 // Load up all the files.
 autoload();
+
+// Force full width on the entire site.
+add_filter( 'genesis_pre_get_option_site_layout', '__genesis_return_full_width_content' );
