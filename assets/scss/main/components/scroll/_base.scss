@@ -1,0 +1,19 @@
+.scroll--container {
+  position: fixed;
+  right: 30px;
+  bottom: 20px;
+
+  opacity: 0;
+
+  @media screen and (min-width: $full-layout--screen) {
+    opacity: 1;
+  }
+}
+
+.scroll-up, .scroll-down {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
