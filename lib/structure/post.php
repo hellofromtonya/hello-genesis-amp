@@ -164,46 +164,61 @@ function render_inpost_widget_area() {
  * @since 1.0.0
  */
 function render_hero() {
-	/**
-	 * Adds class attributes to the hero section.
-	 *
-	 * @since 1.0.0
-	 *
-	 * @param array $attributes Array of attributes.
-	 *
-	 * @return array Amended attributes for `entry-header` element.
-	 */
-	add_filter( 'genesis_attr_entry-header', function( array $attributes ) {
-		$attributes['class'] = 'section--hero  section--fullwindow section';
-
-		return $attributes;
-	} );
-
+	add_filter( 'genesis_attr_entry-header', __NAMESPACE__ . '\add_hero_section_attribute' );
 	remove_action( 'genesis_entry_header', 'genesis_do_post_title' );
-	/**
-	 * Render the hero content.
-	 *
-	 * @since 1.0.0
-	 */
-	add_action( 'genesis_entry_header', function() {
-		$quote = $subtitle1 = genesis_get_custom_field( '_hellofromtonya_hero_quote' );
-		if ( ! $quote ) {
-			$subtitle1 = genesis_get_custom_field( '_hellofromtonya_hero_subtitle1' );
-			$subtitle2 = genesis_get_custom_field( '_hellofromtonya_hero_subtitle2' );
-		}
+	add_action( 'genesis_entry_header', __NAMESPACE__ . '\render_hero_content' );
+}
 
-		include __DIR__ . '/views/hero.php';
+/**
+ * Adds class attributes to the hero section.
+ *
+ * @since 1.0.0
+ *
+ * @param array $attributes Array of attributes.
+ *
+ * @return array Amended attributes for `entry-header` element.
+ */
+function add_hero_section_attribute( array $attributes ) {
+	$attributes['class'] = 'section--hero  section--fullwindow section';
 
-		$nav_id = genesis_get_custom_field( '_hellofromtonya_hero_nav' );
-		if ( $nav_id ) {
-			wp_nav_menu( [
-				'fallback_cb'     => '',
-				'container'       => 'nav',
-				'container_class' => 'hero--nav',
-				'menu_class'      => 'hero--nav-menu',
-				'menu'            => wp_get_nav_menu_object( $nav_id ),
-			] );
-		}
-	} );
+	return $attributes;
+}
 
+/**
+ * Render the hero content.
+ *
+ * @since 1.0.0
+ *
+ * @param integer $post_id Optional. The post's ID.
+ * @param string $quote      Optional. The quote to display.
+ */
+function render_hero_content( $post_id = 0, $quote = '' ) {
+
+	if ( 0 === $post_id ) {
+		$post_id = get_the_ID();
+	}
+
+	$page_title = get_the_title( $post_id );
+
+	if ( ! $quote ) {
+		$quote = genesis_get_custom_field( '_hellofromtonya_hero_quote', $post_id );
+	}
+
+	if ( ! $quote ) {
+		$subtitle1 = genesis_get_custom_field( '_hellofromtonya_hero_subtitle1', $post_id );
+		$subtitle2 = genesis_get_custom_field( '_hellofromtonya_hero_subtitle2', $post_id );
+	}
+
+	include __DIR__ . '/views/hero.php';
+
+	$nav_id = genesis_get_custom_field( '_hellofromtonya_hero_nav', $post_id );
+	if ( $nav_id ) {
+		wp_nav_menu( [
+			'fallback_cb'     => '',
+			'container'       => 'nav',
+			'container_class' => 'hero--nav',
+			'menu_class'      => 'hero--nav-menu',
+			'menu'            => wp_get_nav_menu_object( $nav_id ),
+		] );
+	}
 }

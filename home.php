@@ -15,55 +15,25 @@
 
 namespace Hello_From_Tonya\Hello_Genesis_AMP;
 
+use function Hello_From_Tonya\Hello_Genesis_AMP\Structure\render_hero_content;
+
 add_action( 'genesis_before_content_sidebar_wrap', __NAMESPACE__ . '\render_contents' );
 /**
  * Render the contents out to the browser.
  *
  * @since 1.0.0
- *
- * @return void
  */
 function render_contents() {
-	$page_for_posts = get_page_for_posts();
+	$post_id = get_option( 'page_for_posts' );
+	$page_for_posts = get_post( $post_id );
 
 	if ( ! $page_for_posts ) {
 		return;
 	}
 
-	$contents = prepare_contents_for_render( $page_for_posts );
-	$title    = get_the_title( $page_for_posts );
-
-	include __DIR__ . '/lib/views/posts-page.php';
-}
-
-/**
- * Get the page for posts object
- *
- * @since 1.0.0
- *
- * @return WP_Post|null
- */
-function get_page_for_posts() {
-	$post_id = get_option( 'page_for_posts' );
-	
-	return get_post( $post_id );
-}
-
-/**
- * Prepare the contents for rendering, which includes sanitizing it,
- * since it's not running through filtering, and running the shortcodes.
- *
- * @since 1.0.0
- *
- * @param \WP_Post $page_for_posts Post object
- *
- * @return string Returns the clean HTML
- */
-function prepare_contents_for_render( \WP_Post $page_for_posts ) {
-	$content = wp_kses_post( $page_for_posts->post_content );
-	$content = do_shortcode( $page_for_posts->post_content );
-	
-	return wpautop( $content );
+	?><header class="section--hero section--fullwindow section"><?php
+		render_hero_content( $post_id, $page_for_posts->post_content );
+	?></header><?php
 }
 
 genesis();

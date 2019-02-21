@@ -34,12 +34,11 @@
     line-height: 1;
 
     text-align: right;
-    margin-top: -20px;
+    margin-bottom: -10px;
     margin-right: -10px;
 
     @media screen and (min-width: $large-screen) {
-      margin-top: -90px;
-      margin-right: -90px;
+      margin-right: -30px;
     }
   }
 }

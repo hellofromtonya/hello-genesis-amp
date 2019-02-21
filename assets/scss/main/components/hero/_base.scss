@@ -3,69 +3,9 @@
 //==================================
 
 .section--hero {
-  padding-top: 0;
-
-  @media screen and (min-width: $full-layout--screen) {
-    padding-top: 20px;
-  }
-}
-
-.hero {
-  margin: 0 -50vw;
-  padding: 0 50vw;
-  overflow: hidden;
+  padding-top: 20px;
 
   @media screen and (min-width: $full-layout--screen) {
     padding-top: 40px;
-  }
-
-  background-color: transparent;
-  background: linear-gradient(rgba(255, 255, 255, 0.82) 100%, $white),
-              url(#{$imagePath}/tonyamork-4quad.png) top left repeat;
-
-  .wrap {
-    max-width: $max-width;
-    width: 100%;
-    margin: 0 auto;
-    padding: 0;
-
-    @media screen and (min-width: $full-layout--screen) {
-      padding: 12vh 10vh;
-    }
-
-    display: flex;
-    flex-wrap: wrap;
-
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-
-  h1, h2, h3, h4, p {
-    text-align: center;
-  }
-
-  .hero-title {
-    color: $green;
-    font-size: calc(40px + (50 - 40) * ((100vw - 768px) / (1200 - 768)));
-    transform: scaleY(2);
-    transform-origin: 0 0;
-    margin-top: 0;
-    margin-bottom: 40px;
-  }
-
-  h2 {
-    font-weight: 600;
-
-    @media screen and (max-width: 480px) {
-      font-size: 16px;
-    }
-  }
-
-  h2, h3 {
-    color: $orange;
-    span {
-      color: $darkBlue;
-    }
   }
 }
