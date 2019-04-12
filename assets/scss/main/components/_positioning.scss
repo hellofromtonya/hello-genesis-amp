@@ -1,0 +1,29 @@
+.--no-bottom-margin {
+  margin-bottom: 0;
+}
+
+.--center-text {
+  text-align: center;
+}
+
+// Need to take priority over the inline block styling.
+:root:not(#_):not(#_):not(#_):not(#_):not(#_):not(#_) {
+  .wp-block-media-text {
+    @media screen and (max-width: $full-layout--screen) {
+      &.is-stacked-on-mobile {
+        grid-template-columns: 100% !important;
+      }
+      &.--full-width {
+        grid-template-columns: 100% !important;
+      }
+    }
+
+    &.has-media-on-the-right {
+      .wp-block-media-text__content {
+        padding-left: 0;
+      }
+
+
+    }
+  }
+}
