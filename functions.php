@@ -87,7 +87,6 @@ function autoload() {
 		'structure/comments.php',
 		'structure/footer.php',
 		'structure/header.php',
-		'structure/nav.php',
 		'structure/post.php',
 	);
 

@@ -43,7 +43,10 @@ function render_site_title_area() {
 	include __DIR__ . '/views/site-title.php';
 }
 
-add_action( 'genesis_header', __NAMESPACE__ . '\render_fullpage_menu_toggle', 11 );
+remove_action( 'genesis_after_header', 'genesis_do_nav' );
+add_action( 'genesis_header', 'genesis_do_nav', 10 );
+
+add_action( 'genesis_header', __NAMESPACE__ . '\render_fullpage_menu_toggle', 12 );
 /**
  * Render the fullpage menu toggle (hamburger menu).
  *
