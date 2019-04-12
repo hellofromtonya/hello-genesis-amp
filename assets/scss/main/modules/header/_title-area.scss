@@ -5,11 +5,9 @@
 //======================================
 
 .title-area {
-  position: relative;
-  margin-top: 10px;
-  @media screen and (min-width: $full-layout--screen) {
-    margin-left: 20px;
-  }
+  position: absolute;
+  left: 10px;
+  top: 15px;
 
   .admin-bar & {
     margin-top: (10 + 32) + px;

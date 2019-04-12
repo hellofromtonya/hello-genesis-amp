@@ -3,31 +3,64 @@
 //=================================
 
 .nav-primary {
+	display: none;
+
+	@media screen and (min-width: 1180px) {
+		display: inline-block;
+		transform: translate(-50%, -50%);
+		position: absolute;
+		top: 22px;
+		left: 48%;
+	}
+
+	@media screen and (min-width: 1180px) {
+		left: 50%;
+	}
+
 	list-style-type: none;
-	text-align: left;
-	color: $white;
-	width: 80%;
+
+	li {
+		display: inline-block;
+		padding-right: 10px;
+		&:last-child {
+			padding-right: 0;
+		}
+	}
+
+	a {
+		font-size: 16px;
+		font-family: $playfair;
+		color: $darkBlue;
+		text-transform: lowercase;
+		text-align: left;
+		position: relative;
+		text-decoration: none;
+		border-bottom: 0;
+		padding: 22px 10px 10px;
+
+		&::before {
+			content: "";
+			position: absolute;
+			width: 100%;
+			height: 2px;
+			bottom: -4px;
+			left: 0;
+			background-color: $orange;;
+			visibility: hidden;
+			transform: scaleX(0);
+			transition: all 0.3s ease-in-out 0s;
+		}
+	}
 
 	a:hover,
 	a:focus,
 	a:active,
 	.current-menu-item > a {
-		color: $black;
-		border: 0;
-	}
+		color: $orange;
 
-	.genesis-nav-menu {
-		.menu-item {
-			display: block;
+		&::before {
+			visibility: visible;
+			transform: scaleX(1);
 		}
-
-		li {
-			font-size: 24px;
-
-			@media screen and (min-width: 1200px) {
-				font-size: 40px;
-			}
-		}
-
 	}
 }
