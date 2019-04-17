@@ -103,7 +103,6 @@ class Theme_Setup {
 	 * @return void
 	 */
 	public function update_theme_settings_defaults() {
-
 		if ( function_exists( 'genesis_update_settings' ) ) {
 			genesis_update_settings( $this->config['theme_defaults'] );
 		}
@@ -121,7 +120,6 @@ class Theme_Setup {
 	 * @return void
 	 */
 	protected function add_image_size( array $config ) {
-
 		foreach ( $config as $name => $parameters ) {
 			if ( ! is_array( $parameters ) ) {
 				continue;
@@ -147,7 +145,6 @@ class Theme_Setup {
 	 * @param array $config Configuration parameters.
 	 */
 	protected function add_theme_support( array $config ) {
-
 		foreach ( $config as $feature => $parameters ) {
 			if ( is_null( $parameters ) ) {
 				add_theme_support( $feature );
@@ -165,7 +162,6 @@ class Theme_Setup {
 	 * @param array $config Configuration parameters.
 	 */
 	protected function genesis_unregister_layout( array $config ) {
-
 		foreach ( $config as $layout ) {
 			genesis_unregister_layout( $layout );
 		}
@@ -179,7 +175,6 @@ class Theme_Setup {
 	 * @param bool $ok_to_disable_it When set to true, the `edit_post_link` is disabled.
 	 */
 	protected function disable_edit_link( $ok_to_disable_it = false ) {
-
 		if ( ! $ok_to_disable_it ) {
 			return;
 		}
@@ -213,7 +208,6 @@ class Theme_Setup {
 	 * @param array $config Configuration parameters.
 	 */
 	protected function register_sidebars( array $config ) {
-
 		foreach ( $config as $sidebar ) {
 			genesis_register_sidebar( $sidebar );
 		}
@@ -227,7 +221,6 @@ class Theme_Setup {
 	 * @param array $config Configuration parameters.
 	 */
 	protected function unregister_sidebars( array $config ) {
-
 		foreach ( $config as $sidebar ) {
 			unregister_sidebar( $sidebar );
 		}
@@ -239,8 +232,6 @@ class Theme_Setup {
 	 * @since 1.0.0
 	 *
 	 * @param bool $is_enabled When true, shortcodes are enabled for the text widget.
-	 *
-	 * @return void
 	 */
 	protected function do_shortcodes_in_text_widget( $is_enabled = false ) {
 
@@ -249,6 +240,34 @@ class Theme_Setup {
 		}
 
 		add_filter( 'widget_text', 'do_shortcode' );
+	}
+
+	/**
+	 * Removes the Genesis microdata when using the Yoast SEO schema.
+	 *
+	 * @since 1.0.8
+	 *
+	 * @param array $contexts Array of contexts to remove microdata.
+	 */
+	protected function remove_microdata( array $contexts ) {
+		foreach ( $contexts as $context ) {
+			add_filter( "genesis_attr_{$context}", [ $this, 'remove_microdata_attributes' ], 20 );
+		}
+	}
+
+	/**
+	 * Callback to remove microdata attributes.
+	 *
+	 * @since 1.0.8
+	 *
+	 * @param array $attributes Existing attributes.
+	 *
+	 * @return array Attributes without microdata.
+	 */
+	public function remove_microdata_attributes( $attributes ) {
+		unset( $attributes['itemprop'], $attributes['itemtype'], $attributes['itemscope'] );
+
+		return $attributes;
 	}
 
 	/**********************
@@ -260,7 +279,7 @@ class Theme_Setup {
 	 *
 	 * @since 1.0.0
 	 *
-	 * @param string $config_key Task name as the configuration key.
+	 * @param string $config_key    Task name as the configuration key.
 	 * @param string $method_prefix Method prefix for this task.
 	 *
 	 * @return bool

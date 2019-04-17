@@ -14,7 +14,7 @@ namespace Hello_From_Tonya\Hello_Genesis_AMP\Structure;
 use function Hello_From_Tonya\Hello_Genesis_AMP\get_theme_url;
 
 ?>
-<p class="site-title" itemprop="headline">
+<p class="site-title">
 	<a href="<?php echo esc_url( $url ); ?>" title="<?php echo esc_html( $site_title ); ?>">
 		<svg version="1.1" id="hello-logo" class="site--hello-logo" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 198 93.6" style="enable-background:new 0 0 198 93.6;" xml:space="preserve">
 			<g>

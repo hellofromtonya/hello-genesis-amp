@@ -1,3 +1,3 @@
-<footer class="site--footer" itemscope itemtype="http://schema.org/WPFooter">
+<footer class="site--footer">
 	<p>Copyright <?php echo esc_html( $copyright ); ?> Tonya Mork &middot; reach me: hello ( at ) hellofromtonya.com &middot; Be Kind. Go Excel.</p>
 </footer>

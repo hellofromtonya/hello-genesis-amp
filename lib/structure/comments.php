@@ -31,7 +31,7 @@ add_filter( 'comment_form_defaults', __NAMESPACE__ . '\customize_comments_form_d
  * @return mixed
  */
 function customize_comments_form_defaults( array $parameters ) {
-	$parameters['title_reply'] = __( 'What do you think?', 'UpTechLabs\HelloMinimal' );
+	$parameters['title_reply'] = 'What do you think?';
 
 	return $parameters;
 }
