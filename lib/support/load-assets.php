@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Enqueue assets
  *
@@ -70,7 +69,7 @@ function enqueue_fonts() {
 	$config = require_once get_theme_dir() . '/config/fonts.php';
 	$fonts  = get_fonts_url( $config );
 
-	wp_enqueue_style( $config['handle'], $fonts, [], null );
+	wp_enqueue_style( $config['handle'], $fonts, [], null ); // phpcs:ignore WordPress.WP.EnqueuedResourceParameters.MissingVersion
 }
 
 /**

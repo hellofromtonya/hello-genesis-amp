@@ -2,8 +2,8 @@
 /**
  * Theme runtime configuration parameters.
  *
- * @package     Hello_From_Tonya\Hello_Genesis_AMP
  * @since       1.0.0
+ * @package     Hello_From_Tonya\Hello_Genesis_AMP
  * @author      Tonya Mork <hellofromtonya>
  * @link        https://github.com/hellofromtonya/hello-genesis-amp
  * @license     GPL-2+
@@ -14,7 +14,7 @@ namespace Hello_From_Tonya\Hello_Genesis_AMP;
 return [
 	'theme_slug'          => 'hello-genesis-amp',
 	'version'             => get_theme_version(),
-	'load_min_stylesheet' => defined( 'WP_DEBUG' ) && WP_DEBUG,
+	'load_min_stylesheet' => is_in_debug(),
 	'theme_defaults'      => [
 		'blog_cat_num'              => 10,
 		'content_archive'           => 'full',
@@ -107,7 +107,7 @@ return [
 					'slug'  => 'yellow',
 					'color' => '#ffc40d',
 				],
-			]
+			],
 			// phpcs:ignore Squiz.PHP.CommentedOutCode.Found
 			// 'genesis_footer-widgets'      => 4,
 		],
@@ -131,18 +131,10 @@ return [
 			'head',
 			'body',
 			'site-header',
-//			'site-title',
-//			'site-description',
-//			'breadcrumb',
-//			'breadcrumb-link-wrap',
-//			'breadcrumb-link-wrap-meta',
-//			'breadcrumb-link',
-//			'breadcrumb-link-text-wrap',
 			'search-form',
 			'search-form-meta',
 			'search-form-input',
 			'nav-primary',
-//			'nav-secondary',
 			'nav-header',
 			'nav-link-wrap',
 			'nav-link',
@@ -150,9 +142,6 @@ return [
 			'entry-image',
 			'entry-image-widget',
 			'entry-image-grid-loop',
-//			'entry-author',
-//			'entry-author-link',
-//			'entry-author-name',
 			'entry-time',
 			'entry-modified-time',
 			'entry-title',
@@ -164,8 +153,6 @@ return [
 			'comment-time-link',
 			'comment-content',
 			'author-box',
-//			'sidebar-primary',
-//			'sidebar-secondary',
 			'site-footer',
 		],
 	],

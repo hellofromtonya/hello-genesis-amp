@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Front Page template
  *
