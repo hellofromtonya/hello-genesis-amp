@@ -25,9 +25,6 @@ $use-slideInRight: true;
 $use-slideOutLeft: true;
 $imagePath: 'assets/images';
 
-// Bring in Bourbon.
-@import "bourbon";
-
 // Base stuff.
 @import "utilities/index";
 @import "base/index";
