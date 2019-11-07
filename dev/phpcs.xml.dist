@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
-<ruleset name="Genesis AMP">
-	<description>The custom ruleset for Genesis AMP plugin.</description>
+<ruleset name="Hello Genesis AMP">
+	<description>The custom ruleset for Hello Genesis AMP child theme.</description>
 
 	<!-- For help in understanding this file: https://github.com/squizlabs/PHP_CodeSniffer/wiki/Annotated-ruleset.xml -->
 	<!-- For help in using PHPCS: https://github.com/squizlabs/PHP_CodeSniffer/wiki/Usage -->
@@ -9,21 +9,14 @@
 	<file>.</file>
 	<!-- Ignoring Files and Folders:
 		https://github.com/squizlabs/PHP_CodeSniffer/wiki/Advanced-Usage#ignoring-files-and-folders -->
-	<exclude-pattern>/assets/components/</exclude-pattern>
-	<exclude-pattern>/docs/</exclude-pattern>
-	<exclude-pattern>/logs/</exclude-pattern>
 	<exclude-pattern>/node_modules/</exclude-pattern>
-	<exclude-pattern>/publish/</exclude-pattern>
 	<exclude-pattern>/vendor/</exclude-pattern>
-	<exclude-pattern>*.min.js</exclude-pattern>
-	<exclude-pattern>superfish.js</exclude-pattern>
-	<exclude-pattern>html5shiv.js</exclude-pattern>
 
 	<!-- How to scan -->
 	<arg value="sp"/> <!-- Show sniff and progress -->
 	<arg name="colors"/> <!-- Show results with colors -->
 	<arg name="basepath" value="."/> <!-- Strip the file paths down to the relevant bit -->
-	<arg name="parallel" value="50"/> <!-- Enables parallel processing when available for faster results. -->
+	<arg name="parallel" value="8"/> <!-- Enables parallel processing when available for faster results. -->
 	<arg name="extensions" value="php"/> <!-- Limit to PHP files -->
 
 	<!-- Rules: Check PHP version compatibility - see
@@ -40,7 +33,8 @@
 	<config name="minimum_supported_wp_version" value="5.0"/>
 	<!-- For help in understanding this custom sniff properties:
 		https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards/wiki/Customizable-sniff-properties -->
-	<rule ref="WordPress"/>
+	<rule ref="WordPress-Extra"/><!-- Includes WordPress-Core -->
+	<rule ref="WordPress-Docs"/><!-- Let's also check that everything is properly documented. -->
 
 	<rule ref="WordPress.Security.EscapeOutput">
 		<properties>
@@ -59,8 +53,6 @@
 	</rule>
 
 	<rule ref="WordPress.Files.FileName.NotHyphenatedLowercase">
-		<exclude-pattern>page_archive.php</exclude-pattern>
-		<exclude-pattern>page_blog.php</exclude-pattern>
 		<exclude-pattern>*/TestCase.php</exclude-pattern>
 		<exclude-pattern>*/TestCaseTrait.php</exclude-pattern>
 	</rule>
