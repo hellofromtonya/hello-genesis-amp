@@ -39,7 +39,7 @@ add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\enqueue_assets' );
 /**
  * Enqueue assets.
  *
- * @since 1.0.0
+ * @since 1.1.0
  *
  * @return void Bails out when AMP endpoint.
  */
@@ -54,7 +54,7 @@ function enqueue_assets() {
 
 	wp_enqueue_script(
 		'hello_smooth_scroll',
-		get_theme_url() . '/assets/dist/jquery.project.min.js',
+		get_theme_url() . '/assets/js/jquery.project.min.js',
 		[ 'jquery' ],
 		get_theme_version(),
 		true
