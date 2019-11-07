@@ -23,42 +23,12 @@ use Brain\Monkey\Functions;
  */
 function bootstrap_tests() {
 	define( 'WP_CONTENT_DIR', dirname( dirname( dirname( __DIR__ ) ) ) ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedConstantFound
-	define( 'CHILD_THEME_ROOT_DIR', dirname( __DIR__ ) ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedConstantFound
+	define( 'CHILD_THEME_ROOT_DIR', dirname( dirname( __DIR__ ) ) ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedConstantFound
 
 	// Require patchwork early so that functions can be monkey patched in Unit tests.
 	require dirname( __DIR__ ) . '/vendor/antecedent/patchwork/Patchwork.php';
 
-	$phpunit_argv = $GLOBALS['argv'];
-	$phpunit_key  = array_search( '--testsuite', $phpunit_argv, true );
-
-	if ( $phpunit_key && 'system' === $phpunit_argv[ $phpunit_key + 1 ] ) {
-		bootstrap_systems_tests();
-	} else {
-		bootstrap_unit_integration();
-	}
-}
-
-/**
- * Set up and run WordPress testing environment.
- *
- * @since 0.1.0
- */
-function bootstrap_systems_tests() {
-	$hello_genesis_amp_wp_tests_dir = getenv( 'WP_TESTS_DIR' );
-	if ( ! $hello_genesis_amp_wp_tests_dir ) {
-		$hello_genesis_amp_wp_tests_dir = '/tmp/wordpress-tests-lib';
-	}
-
-	// Give access to tests_add_filter() function.
-	require_once $hello_genesis_amp_wp_tests_dir . '/includes/functions.php';
-
-	tests_add_filter(
-		'setup_theme',
-		function() {
-			register_theme_directory( CHILD_THEME_ROOT_DIR );
-			switch_theme( basename( CHILD_THEME_ROOT_DIR ) );
-		}
-	);
+	bootstrap_unit_integration();
 }
 
 /**
@@ -68,7 +38,7 @@ function bootstrap_systems_tests() {
  */
 function bootstrap_unit_integration() {
 	// Load Brain Monkey, etc.
-	require CHILD_THEME_ROOT_DIR . '/vendor/autoload.php';
+	require dirname( __DIR__ ) . '/vendor/autoload.php';
 
 	// Define some WP functions with Brain Monkey.
 	Monkey\setUp();

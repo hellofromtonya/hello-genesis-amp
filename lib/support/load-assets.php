@@ -3,8 +3,8 @@
 /**
  * Enqueue assets
  *
- * @package     Hello_From_Tonya\Hello_Genesis_AMP\Support
  * @since       1.0.0
+ * @package     Hello_From_Tonya\Hello_Genesis_AMP\Support
  * @author      Tonya Mork <hellofromtonya>
  * @link        https://github.com/hellofromtonya/hello-genesis-amp
  * @license     GPL-2+
@@ -23,9 +23,9 @@ add_filter( 'stylesheet_uri', __NAMESPACE__ . '\change_stylesheet_uri_to_min' );
  *
  * @since 1.0.0
  *
- * @param string $stylesheet_uri
+ * @param string $stylesheet_uri Stylesheet URI for the current theme/child theme.
  *
- * @return string
+ * @return string When not in debug, returns the minified stylesheet's URI.
  */
 function change_stylesheet_uri_to_min( $stylesheet_uri ) {
 	if ( is_in_debug() ) {
@@ -39,7 +39,7 @@ add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\enqueue_assets' );
 /**
  * Enqueue assets.
  *
- * @since 1.0.0
+ * @since 1.1.0
  *
  * @return void Bails out when AMP endpoint.
  */
@@ -54,7 +54,7 @@ function enqueue_assets() {
 
 	wp_enqueue_script(
 		'hello_smooth_scroll',
-		get_theme_url() . '/assets/dist/jquery.project.min.js',
+		get_theme_url() . '/assets/js/jquery.project.min.js',
 		[ 'jquery' ],
 		get_theme_version(),
 		true
@@ -65,8 +65,6 @@ function enqueue_assets() {
  * Load fonts.
  *
  * @since 1.0.0
- *
- * @return void
  */
 function enqueue_fonts() {
 	$config = require_once get_theme_dir() . '/config/fonts.php';
@@ -82,7 +80,7 @@ function enqueue_fonts() {
  *
  * @param array $config Array of fonts.
  *
- * @return string
+ * @return string Returns the Google font's URL.
  */
 function get_fonts_url( array $config ) {
 	$query_args = [
