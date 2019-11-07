@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Header structure customization.
  *
@@ -21,8 +20,6 @@ add_action( 'genesis_before', __NAMESPACE__ . '\render_fullpage_menu_container' 
  * Render the full page menu container right after the `<body>` tag.
  *
  * @since 1.0.0
- *
- * @return void
  */
 function render_fullpage_menu_container() {
 	include __DIR__ . '/views/fullpage-menu-container.php';
@@ -33,8 +30,6 @@ add_action( 'genesis_site_title', __NAMESPACE__ . '\render_site_title_area' );
  * Render out the site title area HTML.
  *
  * @since 1.0.0
- *
- * @return void
  */
 function render_site_title_area() {
 	$url        = trailingslashit( home_url() );

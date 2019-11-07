@@ -24,7 +24,7 @@ add_action( 'genesis_footer', __NAMESPACE__ . '\render_site_footer' );
 function render_site_footer() {
 	$copyright = do_shortcode( '[footer_copyright first="2017"]' );
 
-	include __DIR__ .'/views/site-footer.php';
+	include __DIR__ . '/views/site-footer.php';
 
-	include __DIR__ . '/views/scroll.php';
+	include __DIR__ . '/views/scroll.html';
 }

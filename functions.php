@@ -107,7 +107,7 @@ function setup_theme() {
 
 	if ( null === $theme_setup ) {
 		require __DIR__ . '/lib/class-theme-setup.php';
-		$theme_setup  = new Theme_Setup( require_once __DIR__ . '/config/theme.php' );
+		$theme_setup = new Theme_Setup( require_once __DIR__ . '/config/theme.php' );
 		$theme_setup->init();
 	}
 

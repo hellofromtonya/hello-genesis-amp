@@ -1,9 +1,9 @@
 <?php
 /**
- * Description
+ * Markup customizations.
  *
- * @package     Hello_From_Tonya\Hello_Genesis_AMP\Support
  * @since       1.0.0
+ * @package     Hello_From_Tonya\Hello_Genesis_AMP\Support
  * @author      Tonya Mork <hellofromtonya>
  * @link        https://github.com/hellofromtonya/hello-genesis-amp
  * @license     GPL-2+
@@ -11,20 +11,23 @@
 
 namespace Hello_From_Tonya\Hello_Genesis_AMP\Support;
 
-/**
- * Add ID attribute to the `site-container` element for the AMP scroll to the top target.
- *
- * @since 1.0.0
- *
- * @param array $attributes Existing attributes.
- *
- * @return array amended attributes.
- */
-add_filter( 'genesis_attr_site-container', function( array $attributes ) {
-	$attributes['id'] = 'top-of-page';
+add_filter(
+	'genesis_attr_site-container',
+	/**
+	 * Add ID attribute to the `site-container` element for the AMP scroll to the top target.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @param array $attributes Existing attributes.
+	 *
+	 * @return array amended attributes.
+	 */
+	function( array $attributes ) {
+		$attributes['id'] = 'top-of-page';
 
-	return $attributes;
-} );
+		return $attributes;
+	}
+);
 
 add_filter( 'genesis_attr_taxonomy-archive-description', __NAMESPACE__ . '\add_fullpage_title_to_attributes', 20 );
 add_filter( 'genesis_attr_entry-title', __NAMESPACE__ . '\add_fullpage_title_to_attributes', 20 );

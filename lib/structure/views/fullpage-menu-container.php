@@ -1,3 +1,15 @@
+<?php
+/**
+ * Fullpage menu container's view file.
+ *
+ * @package     Hello_From_Tonya\Hello_Genesis_AMP\Structure
+ * @since       1.0.0
+ * @author      Tonya Mork <hellofromtonya>
+ * @link        https://github.com/hellofromtonya/hello-genesis-amp
+ * @license     GPL-2+
+ */
+
+?>
 <amp-lightbox id="fullpage-menu-container" class="fullpage-menu-container" layout="nodisplay" scrollable>
 	<div class="wrap">
 		<!-- Close button -->
@@ -36,11 +48,11 @@
 						<i class="fa fa-linkedin" aria-hidden="true"><span class="screen-reader-text">Check me out on LinkedIn</span></i>
 					</a>
 				</li>
-    <li>
-        <a href="https://codepen.io/hellofromtonya/">
-            <i class="fa fa-codepen" aria-hidden="true"><span class="screen-reader-text">CodePen</span></i>
-        </a>
-    </li>				
+				<li>
+					<a href="https://codepen.io/hellofromtonya/">
+						<i class="fa fa-codepen" aria-hidden="true"><span class="screen-reader-text">CodePen</span></i>
+					</a>
+				</li>
 			</ul>
 		</footer>
 	</div>

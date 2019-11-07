@@ -14,6 +14,8 @@
  * @license     GPL-2+
  */
 
+// phpcs:disable WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedFunctionFound
+
 if ( ! function_exists( 'get_asset_version_number' ) ) {
 	/**
 	 * Get the version number for an asset file using the file's timestamp.
@@ -51,7 +53,7 @@ if ( ! function_exists( 'fulcrum_load_login_form_styling' ) ) {
 	 *
 	 * @since 1.4.9
 	 *
-	 * @param string $stylesheet
+	 * @param string $stylesheet Login form's stylesheet.
 	 *
 	 * @return void
 	 */

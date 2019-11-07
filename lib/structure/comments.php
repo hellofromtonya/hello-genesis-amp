@@ -12,6 +12,11 @@
 namespace Hello_From_Tonya\Hello_Genesis_AMP\Structure;
 
 add_action( 'genesis_after_entry', __NAMESPACE__ . '\render_comments_background_text_top', 9 );
+/**
+ * Renders the comments background text top view file.
+ *
+ * @since 1.0.0
+ */
 function render_comments_background_text_top() {
 	if ( ! is_single() ) {
 		return;
@@ -26,7 +31,7 @@ add_filter( 'comment_form_defaults', __NAMESPACE__ . '\customize_comments_form_d
  *
  * @since 1.0.0
  *
- * @param array $parameters
+ * @param array $parameters Array of form default arguments.
  *
  * @return mixed
  */

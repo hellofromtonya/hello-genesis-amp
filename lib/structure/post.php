@@ -2,8 +2,8 @@
 /**
  * Post structure customization.
  *
- * @package     Hello_From_Tonya\Hello_Genesis_AMP\Structure
  * @since       1.0.0
+ * @package     Hello_From_Tonya\Hello_Genesis_AMP\Structure
  * @author      Tonya Mork <hellofromtonya>
  * @link        https://github.com/hellofromtonya/hello-genesis-amp
  * @license     GPL-2+
@@ -90,8 +90,8 @@ function change_the_read_more_link( $html ) {
  *
  * @since 1.0.0
  *
- * @param string $html
- * @param string $dots Dots pattern to strip off
+ * @param string $html Incoming HTML.
+ * @param string $dots Dots pattern to strip off.
  *
  * @return string amended HTML.
  */
@@ -105,8 +105,8 @@ function strip_off_read_more_opening_dots( $html, $dots = '&#x02026; ' ) {
  *
  * @since 1.0.0
  *
- * @param string $html             Read more link HTML
- * @param string $replacement_text Replacement text
+ * @param string $html             Read more link HTML.
+ * @param string $replacement_text Replacement text.
  *
  * @return string amended HTML.
  */
@@ -142,15 +142,21 @@ function render_inpost_widget_area() {
 		return;
 	}
 
-	genesis_widget_area( 'adspot', array(
-		'before' => '<div class="adspot --dotted-box"><div class="wrap">',
-		'after'  => '</div></div>',
-	) );
+	genesis_widget_area(
+		'adspot',
+		array(
+			'before' => '<div class="adspot --dotted-box"><div class="wrap">',
+			'after'  => '</div></div>',
+		)
+	);
 
-	genesis_widget_area( 'inpost', array(
-		'before' => '<div class="inpost"><div class="wrap">',
-		'after'  => '</div></div>',
-	) );
+	genesis_widget_area(
+		'inpost',
+		array(
+			'before' => '<div class="inpost"><div class="wrap">',
+			'after'  => '</div></div>',
+		)
+	);
 }
 
 /**
@@ -185,7 +191,7 @@ function add_hero_section_attribute( array $attributes ) {
  * @since 1.0.0
  *
  * @param integer $post_id Optional. The post's ID.
- * @param string $quote      Optional. The quote to display.
+ * @param string  $quote   Optional. The quote to display.
  */
 function render_hero_content( $post_id = 0, $quote = '' ) {
 
@@ -208,12 +214,14 @@ function render_hero_content( $post_id = 0, $quote = '' ) {
 
 	$nav_id = genesis_get_custom_field( '_hellofromtonya_hero_nav', $post_id );
 	if ( $nav_id ) {
-		wp_nav_menu( [
-			'fallback_cb'     => '',
-			'container'       => 'nav',
-			'container_class' => 'hero--nav',
-			'menu_class'      => 'hero--nav-menu',
-			'menu'            => wp_get_nav_menu_object( $nav_id ),
-		] );
+		wp_nav_menu(
+			[
+				'fallback_cb'     => '',
+				'container'       => 'nav',
+				'container_class' => 'hero--nav',
+				'menu_class'      => 'hero--nav-menu',
+				'menu'            => wp_get_nav_menu_object( $nav_id ),
+			]
+		);
 	}
 }
