@@ -1,39 +1,41 @@
-;(function( $, window, document, undefined ) {
-	"use strict";
-	var $sections = $('.section--fullwindow');
+/*eslint-env es6*/
+( ( $, window ) => {
+	'use strict';
 
-	var init = function() {
-// 		_setHeight();
+	const $sections = $( '.section--fullwindow' );
+
+	const init = () => {
+		// _setHeight();
 		_setContentWidth();
 
-		$(window).resize(function() {
-// 			_setHeight();
+		$( window ).resize( () => {
+			// _setHeight();
 			_setContentWidth();
-		});
-	}
+		} );
+	};
 
-	function _setHeight() {
-		if ( window.innerWidth < 768) {
+	function _setHeight() { // eslint-disable-line no-unused-vars
+		if ( window.innerWidth < 768 ) {
 			return;
 		}
-		$sections.each(function(){
-			$(this).css( 'height', window.innerHeight );
-		});
+		$sections.each( () => {
+			$( this ).css( 'height', window.innerHeight );
+		} );
 	}
 
 	function _setContentWidth() {
-		if ( window.innerWidth > 1200 || window.innerWidth < 768) {
-			$('.site--content .wrap').css('max-width', '');
+		if ( window.innerWidth > 1200 || window.innerWidth < 768 ) {
+			$( '.site--content .wrap' ).css( 'max-width', '' );
 			return;
 		}
 
-		var wt = window.innerWidth - $('.sidebar--right').width() - $('.background--text').width();
-		if (wt > 1400) {
+		const wt = window.innerWidth - $( '.sidebar--right' ).width() - $( '.background--text' ).width();
+		if ( wt > 1400 ) {
 			return;
 		}
-		$('.site--content .wrap').css('max-width', wt);
+		$( '.site--content .wrap' ).css( 'max-width', wt );
 	}
 
 	init();
 
-}( jQuery, window, document ) );
+} )( jQuery ); // eslint-disable-line no-undef, padded-blocks
