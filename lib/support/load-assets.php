@@ -53,7 +53,7 @@ function enqueue_assets() {
 
 	wp_enqueue_script(
 		'hello_smooth_scroll',
-		get_theme_url() . '/assets/js/jquery.project.min.js',
+		get_theme_url() . '/assets/js/theme.min.js',
 		[ 'jquery' ],
 		get_theme_version(),
 		true
