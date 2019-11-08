@@ -1,30 +1,31 @@
-;(function ( $, window, document, undefined ) {
-	'use strict'
+/*eslint-env es6*/
+( ( $ ) => {
+	'use strict';
 
-	var $body;
+	let $body;
 
-	function init() {
+	const init = () => {
 		$body = $( 'html, body' );
 
-		$( 'a[href^="#"]' ).on( 'click', function( event ) {
+		$( 'a[href^="#"]' ).on( 'click', ( event ) => {
 			event.preventDefault();
 
 			smoothScrollHandler( this.hash, event );
-		});
-	}
+		} );
+	};
 
-	function smoothScrollHandler( target, event ) {
-		var $target = $( target );
+	const smoothScrollHandler = ( target ) => {
+		const $target = $( target );
 
-		if ( typeof $target == "undefined" || ! $target.length ) {
+		if ( typeof $target === 'undefined' || ! $target.length ) {
 			return false;
 		}
 
-		$body.stop().animate({
-			'scrollTop': $target.offset().top
+		$body.stop().animate( {
+			scrollTop: $target.offset().top,
 		}, 2000, 'swing' );
-	}
+	};
 
 	init();
 
-}( jQuery, window, document ));
+} )( jQuery ); // eslint-disable-line no-undef, padded-blocks

@@ -1,37 +1,38 @@
-;(function ( $, window, document, undefined ) {
+/*eslint-env es6*/
+( ( $, window ) => {
 	'use strict';
 
-	var $scrollUp;
+	let $scrollUp;
 
-	var init = function() {
-		$scrollUp = $('.scroll--up');
+	const init = () => {
+		$scrollUp = $( '.scroll--up' );
 
 		_scrollupScrollHandler();
-		$scrollUp.on('click', _scrollupClickHandler);
-	}
+		$scrollUp.on( 'click', _scrollupClickHandler );
+	};
 
 	function _scrollupScrollHandler() {
-		var height = $(window).height() / 2;
+		const height = $( window ).height() / 2;
 
-		$( window ).scroll( function () {
-			var position =  $(this).scrollTop();
+		$( window ).scroll( () => {
+			const position = $( this ).scrollTop();
 
 			if ( position > height ) {
-				$scrollUp.addClass('slideInUp');
+				$scrollUp.addClass( 'slideInUp' );
 			} else {
-				$scrollUp.removeClass('slideInUp');
+				$scrollUp.removeClass( 'slideInUp' );
 			}
 		} );
 	}
-	function _scrollupClickHandler() {
 
-		$("html, body").animate({
-			scrollTop: 0
-		}, 2000);
+	function _scrollupClickHandler() {
+		$( 'html, body' ).animate( {
+			scrollTop: 0,
+		}, 2000 );
 
 		return false;
 	}
 
 	init();
 
-}( jQuery, window, document ));
+} )( jQuery ); // eslint-disable-line no-undef, padded-blocks

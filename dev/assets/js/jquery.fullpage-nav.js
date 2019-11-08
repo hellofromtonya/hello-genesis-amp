@@ -1,26 +1,27 @@
-;(function( $, window, document, undefined ) {
-	"use strict";
+/*eslint-env es6*/
+( ( $, window ) => {
+	'use strict';
 
-	var $window,
-		$body,
-		$container;
+	let $window;
+	let $body;
+	let $container;
 
-	var init = function() {
+	const init = () => {
 		$window = $( window );
-		$body = $('body');
+		$body = $( 'body' );
 		initMenu();
-	}
+	};
 
 	function initMenu() {
-		$container = $('#menu-container');
+		$container = $( '#menu-container' );
 		_setContainerWidth();
 
-		$('#hamburger-menu--mobile').on('click', initClickHandler );
-		$('#hamburger-menu').on('click', initClickHandler );
+		$( '#hamburger-menu--mobile' ).on( 'click', initClickHandler );
+		$( '#hamburger-menu' ).on( 'click', initClickHandler );
 
-		$(window).resize(function() {
+		$window.resize( () => {
 			_setContainerWidth();
-		});
+		} );
 	}
 
 	function _setContainerWidth() {
@@ -28,40 +29,38 @@
 			return;
 		}
 
-		$container.css('width', window.innerWidth - $('.sidebar--right').width());
+		$container.css( 'width', window.innerWidth - $( '.sidebar--right' ).width() );
 	}
 
 	function initClickHandler() {
-		if ( $body.hasClass('menu--open') ) {
+		if ( $body.hasClass( 'menu--open' ) ) {
 			closeContainer();
-
 		} else {
 			openContainer();
 		}
 	}
 
 	function closeContainer() {
+		$container.removeClass( 'slideInRight' ).addClass( 'slideOutLeft' );
 
-		$container.removeClass('slideInRight').addClass('slideOutLeft');
-
-		setTimeout(function(){
-			$body.removeClass('menu--open');
-		}, 400);
+		setTimeout( () => {
+			$body.removeClass( 'menu--open' );
+		}, 400 );
 	}
 
 	function openContainer() {
-		$body.addClass('menu--open');
-		$container.addClass('slideInRight').removeClass('slideOutLeft');
+		$body.addClass( 'menu--open' );
+		$container.addClass( 'slideInRight' ).removeClass( 'slideOutLeft' );
 
 		itemClickHandler();
 	}
 
 	function itemClickHandler() {
-		$('.menu--item a').on('click', function(){
+		$( '.menu--item a' ).on( 'click', () => {
 			closeContainer();
-		});
+		} );
 	}
 
 	init();
 
-}( jQuery, window, document ) );
+} )( jQuery ); // eslint-disable-line no-undef, padded-blocks

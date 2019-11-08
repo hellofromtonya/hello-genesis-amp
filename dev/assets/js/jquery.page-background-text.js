@@ -1,28 +1,29 @@
-;(function( $, window, document, undefined ) {
-	"use strict";
+/*eslint-env es6*/
+( ( $, window ) => {
+	'use strict';
 
-	var lastPosition = 0,
-		$backgroundText, currentSection = 0;
+	let lastPosition = 0,
+		$backgroundText,
+		currentSection = 0;
 
-	var init = function() {
+	const init = () => {
 		if ( window.innerWidth < 768 ) {
 			return;
 		}
 
-		$backgroundText = $('.background--text');
-		if (typeof $backgroundText === "undefined") {
+		$backgroundText = $( '.background--text' );
+		if ( typeof $backgroundText === 'undefined' ) {
 			return;
 		}
 
 		messageHandler();
 
 		onScroll();
-	}
+	};
 
 	function onScroll() {
-
-		$(window).scroll(function(){
-			var currentPosition = $(this).scrollTop();
+		$( window ).scroll( () => {
+			const currentPosition = $( this ).scrollTop();
 
 			if ( ! isMovementLargeEnough( currentPosition ) ) {
 				return;
@@ -31,50 +32,51 @@
 			messageHandler();
 
 			lastPosition = currentPosition;
-		});
+		} );
 	}
 
 	function isMovementLargeEnough( currentPosition ) {
-		var movement = Math.abs( lastPosition - currentPosition );
+		const movement = Math.abs( lastPosition - currentPosition );
 
 		return movement > 50;
 	}
 
 	function messageHandler() {
-		$('.section').each(function(index){
-			var $section = $(this);
+		$( '.section' ).each( function( index ) {
+			const $section = $( this );
 
-			if ( typeof $section !== 'object') {
+			if ( typeof $section !== 'object' ) {
 				return false;
 			}
 
-			if ( ! $section.isOnScreen({percentY:0.3}) ) {
+			if ( ! $section.isOnScreen( { percentY: 0.3 } ) ) {
 				return true;
 			}
 
-			if ( index == currentSection ) {
+			if ( index === currentSection ) {
 				return false;
 			}
-			setMessage($section);
+			setMessage( $section );
 			currentSection = index;
+
 			return false;
-		});
+		} );
 	}
 
 	function setMessage( $section ) {
-		var messageText = $section.data('message');
+		const messageText = $section.data( 'message' );
 
-		if ( typeof messageText === "undefined" || messageText == null ) {
+		if ( typeof messageText === 'undefined' || messageText === null ) {
 			return;
 		}
 
-		$backgroundText.html(messageText);
+		$backgroundText.html( messageText );
 	}
 
 	init();
 
-	$(window).resize(function() {
+	$( window ).resize( () => {
 		init();
-	});
+	} );
 
-}( jQuery, window, document ) );
+} )( jQuery, window ); // eslint-disable-line no-undef, padded-blocks
