@@ -1,12 +1,5 @@
 .DS_Store
-Thumbs.db
-.svn
-/composer.lock
-/phpunit.xml
-/phpcs.xml
-node_modules/
-logs/
-assets/components/
-publish/
-docs/
-vendor/
+*/node_modules/
+*/vendor/
+_old/
+_keep/
