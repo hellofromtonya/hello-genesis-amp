@@ -27,4 +27,8 @@ function render_site_footer() {
 	include __DIR__ . '/views/site-footer.php';
 
 	include __DIR__ . '/views/scroll.html';
+
+	if ( genesis_is_amp() ) {
+		require __DIR__ . '/views/scroll-to-target.html';
+	}
 }
