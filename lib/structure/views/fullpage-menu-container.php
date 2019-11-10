@@ -13,7 +13,7 @@
 <amp-lightbox id="fullpage-menu-container" class="fullpage-menu-container" layout="nodisplay" scrollable>
 	<div class="wrap">
 		<!-- Close button -->
-		<button class="fullpage-menu--close" on="tap:fullpage-menu-container.close"><span class="screen-reader-text">Hide Full Page Menu</span>X</button>
+		<button class="fullpage-menu--close" on="tap:fullpage-menu-container.close" aria-labelledby="fullpage-menu-close"><span id="fullpage-menu-close" class="screen-reader-text">Hide Full Page Menu</span>X</button>
 
 		<!-- Menus  -->
 		<a href="https://hellofromtonya.com" class="menu--item menu--item--home"><i class="fa fa-home" aria-hidden="true"><span class="screen-reader-text">Home</span></i> Home</a>
