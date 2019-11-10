@@ -42,6 +42,6 @@ use function Hello_From_Tonya\Hello_Genesis_AMP\get_theme_url;
 			c-0.6-3.8-3-3.1-3.6,0.4c-0.6,3.2,0.7,6.7,2.6,8.5C180.4,51.4,180.8,48.4,180.4,46.2z"/>
 			</g>
 		</svg>
-		<img class="site-title--avatar" src="<?php echo esc_url( get_theme_url() ); ?>/assets/images/hellofromtonya.jpg" width="50" height="50" alt="<?php echo esc_html( $site_title ); ?>">
+		<img class="site-title--avatar" src="<?php echo esc_url( get_theme_url() ); ?>/assets/images/hellofromtonya-50x50.jpg" width="50" height="50" alt="<?php echo esc_html( $site_title ); ?>">
 	</a>
 </p>
